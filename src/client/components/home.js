@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router';
-import {GoToHome} from './../utils/'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -19,12 +18,11 @@ class Dashboard extends Component {
   render () {
     return (
       <div>
-      <h1>
+      <h1 className="ui header">
       Splash Screen
       </h1>
-      <h2 onClick={() => this.gotoDashboard()}>Go To Dashboard</h2>
-        <h2 onClick={() => this.gotoPredection()}>Go To Predection</h2>
-
+      <button className="ui violet button" role="button" onClick={() => this.gotoDashboard()}>Go To Dashboard</button>
+      <button className="ui purple button" role="button" onClick={() => this.gotoPredection()}>Go To Predection</button>
       </div>
     )
   }
