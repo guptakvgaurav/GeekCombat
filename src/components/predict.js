@@ -1,17 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 
-class ContactUs extends Component {
+class Predict extends Component {
   render () {
     return (
       <div>
-        <h1>Contact us</h1>
+        <h1>Predict Screen</h1>
       </div>
     )
   }
 }
 
-ContactUs.propTypes = {
 
-}
-
-export default ContactUs
+export default Predict

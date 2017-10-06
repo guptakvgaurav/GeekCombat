@@ -1,29 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import Home from './home.js'
-import About from './about.js'
-import ContactUs from './contact.js'
+import Dashboard from './dashboard.js'
+import Predict from './predict.js'
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
 import './style.scss'
 class App extends Component {
+
   render () {
     return (
       <div>
-        <li>
-          <Link to = "/home">Home</Link>
-        </li>
-        <li>
-          <Link to = "/about">About</Link>
-        </li>
-        <li>
-          <Link to = "/contact">Contact</Link>
-        </li>
-
-        <h1>
-        Hello World
-        </h1>
-        {this.props.children}
+        <h2 onClick={() =>this.gotoHome()}>Go back to home</h2>
       </div>
     )
   }
@@ -31,10 +19,8 @@ class App extends Component {
 
 ReactDOM.render((
   <Router history = {browserHistory}>
-      <Route path = "/" component = {App}>
-         <Route path = "home" component = {Home} />
-         <Route path = "about" component = {About} />
-         <Route path = "contact" component = {ContactUs} />
-      </Route>
+         <Route path = "/" component = {Home} />
+         <Route path = "/dashboard" component = {Dashboard} />
+         <Route path = "/predict" component = {Predict} />
    </Router>
 ), document.getElementById("App"))

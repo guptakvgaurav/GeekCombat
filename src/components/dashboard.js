@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-class About extends Component {
+class Predict extends Component {
   render () {
     return (
       <h1>
-      About us
+      This is Dashboard
       </h1>
     )
   }
 }
-export default About
+export default Predict
