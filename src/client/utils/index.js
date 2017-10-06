@@ -11,9 +11,8 @@ class GoToHome extends Component {
     browserHistory.push('/')
   }
 
-
-
   render () {
+    console.log("KKKSKSKSK");
     return (
       <div>
       <h1>

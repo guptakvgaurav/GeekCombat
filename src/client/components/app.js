@@ -11,7 +11,6 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h2 onClick={() =>this.gotoHome()}>Go back to home</h2>
       </div>
     )
   }

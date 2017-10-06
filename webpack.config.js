@@ -3,7 +3,7 @@ const extractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-  entry: {bundle: ['./src/components/app.js', 'webpack-hot-middleware/client']},
+  entry: {bundle: ['./src/client/components/app.js', 'webpack-hot-middleware/client']},
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
