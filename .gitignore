@@ -3,4 +3,5 @@ node_modules
 .idea
 vcs.xml
 yarn.lock
+*.log
 dist/
