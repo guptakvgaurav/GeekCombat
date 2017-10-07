@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react'
-import {Form} from 'semantic-ui-react'
+import {Form, Select, Checkbox} from 'semantic-ui-react'
 import GoToHome, {getData} from './../utils/'
 import {browserHistory, Link} from 'react-router'
+import {companySize, regions, companySource,industry, techStack,} from '../seed'
 
 
 class Predict extends Component {
@@ -13,13 +14,13 @@ class Predict extends Component {
     }
 
 
-    getAPIData =() => {
-      getData((data) =>{
-        this.gotoScore(data)
-      })
+    getAPIData = () => {
+        getData((data) => {
+            this.gotoScore(data)
+        })
     }
-    gotoScore =(data) => {
-      browserHistory.push({pathname: '/score', query: {"data": data.data.userId } })
+    gotoScore = (data) => {
+        browserHistory.push({pathname: '/score', query: {"data": data.data.userId}})
     }
 
     handleChange = (e, {value, name}) => {
@@ -30,24 +31,34 @@ class Predict extends Component {
     render() {
         return (
             <div>
-              <div className="center">
-                <h2 >Predict Screen</h2>
+                <div className="center">
+                    <h2 >Predict Screen</h2>
                 </div>
                 <div className="company_form">
                     <Form>
                         <Form.Group widths='equal'>
-                            <Form.Input name="companyName" onChange={this.handleChange} label='Company name'
+
+                            <Form.Input name="companyName" onChange={this.handleChange}
                                         placeholder='Company name'/>
-                            <Link to="chart" target="_blank" to={`https://in.linkedin.com/company/${this.state.companyInfo.name}`}>Test</Link>
-                            <Form.Input label='Company size' placeholder='Company size'/>
-                            <Form.Input label='Tech Stack' placeholder='Tech Stack'/>
+                            <button>
+                                <Link to="chart" target="_blank"
+                                      to={`https://in.linkedin.com/company/${this.state.companyInfo.name}`}>Search On
+                                    Linkedin</Link>
+                            </button>
+
                         </Form.Group>
                         <Form.Group widths='equal'>
-                            <Form.Input label='Founded Year' placeholder='Year Founded'/>
-                            <Form.Input label='Contact Person' placeholder='Enter contacting person'/>
-                            <Form.Input label='Specialties' placeholder='Specialties'/>
+                            <Select placeholder='Select company size' options={companySize}/>
+                            <Select placeholder='Select Region' options={regions}/>
+                            <Select placeholder='Select Industry' options={industry}/>
+
                         </Form.Group>
-                        <Form.Input label='Company Website' placeholder='Company Website..'/>
+                        <Form.Group widths='equal'>
+                            <Checkbox label={{ children: 'Is contact person decision maker' }}/>
+                            <Select placeholder='Account Source ' options={companySource}/>
+                            <Select placeholder='Company Tech Stack' options={techStack}/>
+                        </Form.Group>
+
                         <div className="center">
                             <Form.Button onClick={() =>this.getAPIData()}>Predict</Form.Button>
                         </div>
