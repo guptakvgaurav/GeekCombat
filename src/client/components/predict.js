@@ -41,7 +41,7 @@ class Predict extends Component {
                     </Form.Group>
                     <Form.Input label='Company Website' placeholder='Company Website..'/>
                     <div className="center">
-                        <Form.Button onClick={() => this.gotoScore()}>Predict</Form.Button>
+                        <Form.Button onClick={() => this.getAPIData()}>Predict</Form.Button>
                     </div>
                 </Form>
             </div>
