@@ -4,6 +4,7 @@ import axios from 'axios'
 import moment from 'moment'
 
 import GoToHome from './../utils/'
+const baseUrl = 'https://sales-predictor.herokuapp.com/'
 
 class History extends Component {
   constructor(props) {
@@ -14,10 +15,9 @@ class History extends Component {
   }
 
   componentDidMount = () => {
-    console.log('api hit')
     const config = {
       method: 'get',
-      url: 'http://localhost:7777/v1/api/history',
+      url: `${baseUrl}v1/api/history`,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type':'application/json',
@@ -41,7 +41,7 @@ class History extends Component {
     console.log('api hit', status, id)
     const config = {
       method: 'put',
-      url: 'http://localhost:7777/v1/api/history',
+      url: `${baseUrl}v1/api/history`,
       data: {
         id: id,
         usefull: Boolean(status)
