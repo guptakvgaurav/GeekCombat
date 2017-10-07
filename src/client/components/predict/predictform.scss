@@ -1,0 +1,145 @@
+
+.modal__featured {
+    position: relative;
+    display: inline-block;
+    min-width: 230px;
+    padding: 20px;
+    overflow: hidden;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  .button--close {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: #ffffff;
+    border-radius: 50%;
+    -webkit-transition: all .25s;
+    transition: all .25s;
+    z-index: 10;
+  }
+  .modal__circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200%;
+    width: 200%;
+    background-color: #1e3a4a;
+    border-radius: 50%;
+    -webkit-transform: translateX(-50%) translateY(-25%);
+    transform: translateX(-50%) translateY(-25%);
+  }
+  .modal__product {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    max-width: 85%;
+    -webkit-transform: translateX(calc(-50% - 10px));
+    transform: translateX(calc(-50% - 10px));
+  }
+  .modal__content {
+    display: inline-block;
+    padding: 40px 30px;
+  }
+  .modal__container {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    max-width: 675px;
+    min-height: 550px;
+    margin-bottom: 125px;
+    background-color: rgba(251, 251, 251, 0.2);
+    border-radius: 5px;
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.1);
+    margin: 60px auto;
+  }
+  .csm-predict-input-form-title h2 {
+    color: #f8f8fb;
+    position: relative;
+    display: block;
+    &:after {
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: #1e3a4a;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+    }
+    &:before {
+        width: 100%;
+        height: 2px;
+        background: #1e3a4a;
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+    }
+}
+.csm-predict-input-form-right.modal__content {
+    display: inline-block;
+    width: 100%;
+    max-width: 445px;
+    margin: 0;
+    .company_form {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.equal.width.fields.form_group_col {
+    margin-left: 0px;
+    input,.ui.selection.dropdown {
+        background: rgba(0, 0, 0, 0.1);
+        color:#fff;
+    }
+    label {
+        color: #fff;
+    }
+    .ui.selection.dropdown {
+        width: 100%;
+    }
+    p{
+        background-image: url(../../../public/img/linkedin.png);
+        box-shadow: none;
+        background-position: 10px 5px;
+        background-size: auto 80%;
+        background-repeat: no-repeat;
+        background-color: #0274b3;
+        padding: 3px 0px 3px 10px;
+        margin: 0 !important;        
+        a{
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff !important;
+            font-size: 18px;
+            display: inline-block;
+            padding: 12px 16px;
+            border: 0;
+            font-weight: 300;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-transform: capitalize;
+            text-decoration: none;
+            -webkit-appearance: none;
+            box-shadow: none;
+            border: 0;
+            &:hover {
+                outline: none;
+            }
+        }
+    }
+}
+.equal.width.fields.form_group_col.no-left-padding .field {
+    padding-left: 0;
+}

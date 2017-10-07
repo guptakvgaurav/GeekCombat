@@ -4,6 +4,8 @@ import GoToHome, {getData} from '../../utils/'
 import {browserHistory, Link} from 'react-router'
 import {companySize, regions, companySource,industry, techStack,} from '../../seed'
 
+import './predictform.scss'
+
 
 class Predict extends Component {
     constructor(props) {
@@ -30,39 +32,55 @@ class Predict extends Component {
 
     render() {
         return (
-            <div>
-                <div className="center">
-                    <h2 >Predict Screen</h2>
+            <div className="csm-predict-input-form-wrapper modal__container">
+                <div className="modal__featured csm-predict-input-form-left">
+
+                    <div className="modal__circle"></div>
+                       <img src="../../img/oct.png" className="modal__product" />
                 </div>
-                <div className="company_form">
-                    <Form>
-                        <Form.Group widths='equal'>
+                <div className="csm-predict-input-form-right modal__content">
+                    <div className="csm-predict-input-form-title">
+                        <h2 >Predict Screen</h2>
+                    </div>
+                    <div className="company_form">
+                        <Form className="form_class">
+                            <Form.Group widths='equal' className="form_group_col no-left-padding">
+                                <Form.Input name="companyName" onChange={this.handleChange}
+                                            placeholder='Company name'/>
+                                <p className="popup" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide">
 
-                            <Form.Input name="companyName" onChange={this.handleChange}
-                                        placeholder='Company name'/>
-                            <button>
-                                <Link to="chart" target="_blank"
-                                      to={`https://in.linkedin.com/company/${this.state.companyInfo.name}`}>Search On
-                                    Linkedin</Link>
-                            </button>
+                                    <Link to="chart" target="_blank"
+                                        to={`https://in.linkedin.com/company/${this.state.companyInfo.name}`}></Link>
+                                </p>
 
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Select placeholder='Select company size' options={companySize}/>
-                            <Select placeholder='Select Region' options={regions}/>
-                            <Select placeholder='Select Industry' options={industry}/>
-
-                        </Form.Group>
-                        <Form.Group widths='equal'>
-                            <Checkbox label={{ children: 'Is contact person decision maker' }}/>
+                            </Form.Group>
+                            <Form.Group widths='equal' className="form_group_col">
+                                  <Select placeholder='Select company size' options={companySize}/>
+                            </Form.Group>
+                            <Form.Group widths='equal' className="form_group_col">
+                                <Select placeholder='Select Region' options={regions}/>
+                            </Form.Group>
+                            <Form.Group widths='equal' className="form_group_col">
+                                <Select placeholder='Select Industry' options={industry}/>
+                            </Form.Group>
+                            <Form.Group widths='equal' className="form_group_col">
+                               <Checkbox label={{ children: 'Is contact person decision maker' }}/>
+                            </Form.Group>
+                            <Form.Group widths='equal' className="form_group_col">
                             <Select placeholder='Account Source ' options={companySource}/>
-                            <Select placeholder='Company Tech Stack' options={techStack}/>
-                        </Form.Group>
+                            </Form.Group>
 
-                        <div className="center">
-                            <Form.Button onClick={() =>this.getAPIData()}>Predict</Form.Button>
-                        </div>
-                    </Form>
+                            <Form.Group widths='equal' className="form_group_col">
+
+
+                                <Select placeholder='Company Tech Stack' options={techStack}/>
+                            </Form.Group>
+
+                            <div className="">
+                                <Form.Button onClick={() =>this.getAPIData()}>Predict</Form.Button>
+                            </div>
+                        </Form>
+                    </div>
                 </div>
             </div>
         )
