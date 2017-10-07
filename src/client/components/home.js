@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router';
-import Introbox from './Introbox'
-import Footer from './Footer'
+import Introbox from './introbox'
+import Footer from './footer'
 import img from './img.png'
 
 class Dashboard extends Component {
