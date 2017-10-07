@@ -1,8 +1,8 @@
 var express = require('express')
 var router = express.Router()
-import {index} from './controller'
+const controller = require('./controller')
 
 router.route('/')
-    .get(index)
+    .get(controller.index)
 
 export default router

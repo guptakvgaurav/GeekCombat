@@ -1,3 +1,3 @@
-export const index = (req, res) => {
+exports.index = (req, res) => {
     res.status(200).json({msg: 'success'})
 }
