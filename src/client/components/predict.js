@@ -1,11 +1,24 @@
 import React, {Component, PropTypes} from 'react'
-import GoToHome from './../utils/'
 import {Form} from 'semantic-ui-react'
+import GoToHome, {getData} from './../utils/'
+import { browserHistory} from 'react-router'
+
 
 class Predict extends Component {
     constructor(props) {
         super(props)
         this.state = {}
+    }
+
+    gotoScore =(data) => {
+      browserHistory.push({pathname: '/score', data: data})
+
+    }
+    getAPIData =() => {
+      getData((data) =>{
+        console.log("API response", data);
+        this.gotoScore(data)
+      })
     }
 
     handleChange = (e, {value}) => this.setState({value})
@@ -15,6 +28,10 @@ class Predict extends Component {
             <div>
                 <h1 className="ui header">Predict Screen</h1>
                 <GoToHome className="ui_header"></GoToHome>
+                  <button className="ui ui_header violet button" role="button" onClick={() => this.getAPIData()}>Get API Response</button>
+                    <button className="ui ui_header violet button" role="button" onClick={() => this.gotoScore()}>Go To Score</button>
+
+
                 <div className="company_form">
                     <Form>
                         <Form.Group widths='equal'>
