@@ -1,6 +1,6 @@
-import History from './model'
+const History = require('./model')
 
-export const getHistory = (req, res) => {
+exports.getHistory = (req, res) => {
 	History.find({}).lean().exec()
 	.then((history) => {
     	res.status(200).json({
@@ -16,8 +16,7 @@ export const getHistory = (req, res) => {
 	})
 }
 
-export const createHistory = (req, res) => {
-	console.log('here', req.body)
+exports.createHistory = (req, res) => {
 	const history = new History(req.body)
 
 	history.save((err) => {
@@ -33,7 +32,7 @@ export const createHistory = (req, res) => {
 	})
 }
 
-export const updateHistory = (req, res) => {
+exports.updateHistory = (req, res) => {
 	console.log('here', req.body)
 	History.findOneAndUpdate({
 		_id: req.body.id

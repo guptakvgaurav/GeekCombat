@@ -5,4 +5,4 @@ const controller = require('./controller')
 router.route('/')
     .get(controller.index)
 
-export default router
+module.exports = router

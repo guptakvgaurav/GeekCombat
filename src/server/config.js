@@ -1,4 +1,4 @@
-export default config = {
+module.exports = config = {
     linkedIn: {
         clientID: '86hli35wjdoj0d',
         clientSecret: 'auPpsIv4aZ065rfP',
