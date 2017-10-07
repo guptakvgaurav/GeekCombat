@@ -1,36 +1,31 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap'
 import GoToHome from './../utils/';
 import { browserHistory} from 'react-router';
-import { Header, Icon, Image } from 'semantic-ui-react'
-
+import './dashboard.scss'
 
 class Predict extends Component {
-  goToReview =() => {
+  goToReview = () => {
     browserHistory.push({pathname: '/history', query: {} })
   }
-  goToPrediction =(data) => {
+  goToPrediction = (data) => {
     browserHistory.push({pathname: '/predict', query: {} })
   }
   render () {
     return (
-      <div>
-        <div>
-      <Header as='h2' icon textAlign='center'>
-        <Icon name='pie graph' circular />
-        <Header.Content>
-          Dashboard
-        </Header.Content>
-      </Header>
-      <Image centered size='tiny' className="dashboard-header-image" src='/img/centered-paragraph.png' />
-    </div>
-
-      <div className="center padding-goto">
-        <button className="ui ui_header violet button" role="button" onClick={() => this.goToReview()}>Review Old Prediction</button>
-        <button className="ui ui_header violet button" role="button" onClick={() => this.goToPrediction()}>Predict</button>
-      </div>
-      <div className="center">
-        <GoToHome ></GoToHome>
-      </div>
+      <div className="dashboard-wrapper">
+        <div className="navigation-btns">
+          <GoToHome ></GoToHome>
+          <div>
+            <Button className="review-btn" onClick={() => this.goToReview()}>
+              Review Old Prediction
+            </Button>
+            <Button className="predict-btn" onClick={() => this.goToPrediction()}>
+              Predict
+            </Button>
+          </div>
+        </div>
+        <h2>Analytics</h2>
       </div>
     )
   }
