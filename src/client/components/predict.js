@@ -25,8 +25,9 @@ class Predict extends Component {
     render() {
         return (
             <div>
-                <h1 className="ui header">Predict Screen</h1>
-                <GoToHome className="ui_header"></GoToHome>
+              <div className="center">
+                <h2 >Predict Screen</h2>
+                </div>
                 <div className="company_form">
                 <Form>
                     <Form.Group widths='equal'>
@@ -41,7 +42,9 @@ class Predict extends Component {
                     </Form.Group>
                     <Form.Input label='Company Website' placeholder='Company Website..'/>
                     <div className="center">
-                        <Form.Button onClick={() => this.getAPIData()}>Predict</Form.Button>
+                        <Form.Button primary onClick={() => this.getAPIData()}>Predict</Form.Button>
+                        <GoToHome ></GoToHome>
+
                     </div>
                 </Form>
             </div>
