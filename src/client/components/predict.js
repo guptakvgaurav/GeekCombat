@@ -10,15 +10,16 @@ class Predict extends Component {
         this.state = {}
     }
 
-    gotoScore =(data) => {
-      browserHistory.push({pathname: '/score', data: data})
 
-    }
     getAPIData =() => {
       getData((data) =>{
         console.log("API response", data);
         this.gotoScore(data)
       })
+    }
+    gotoScore =(data) => {
+      console.log("LSLLSLS", data);
+      browserHistory.push({pathname: '/score', query: {"data": data.data.userId } })
     }
 
     handleChange = (e, {value}) => this.setState({value})
