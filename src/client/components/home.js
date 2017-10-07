@@ -15,6 +15,10 @@ class Dashboard extends Component {
     browserHistory.push('/predict')
   }
 
+  gotoHistory = () => {
+    browserHistory.push('/history')
+  }
+
   render () {
     return (
       <div>
@@ -22,6 +26,7 @@ class Dashboard extends Component {
       Splash Screen
       </h1>
       <button className="ui violet button" role="button" onClick={() => this.gotoDashboard()}>Go To Dashboard</button>
+      <button className="ui red button" role="button" onClick={() => this.gotoHistory()}>Go To History</button>
       <button className="ui purple button" role="button" onClick={() => this.gotoPredection()}>Go To Predection</button>
       </div>
     )

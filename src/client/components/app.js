@@ -4,6 +4,7 @@ import Home from './home.js'
 import Dashboard from './dashboard.js'
 import Predict from './predict.js'
 import Score from './score.js'
+import History from './history.js'
 
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
@@ -24,6 +25,6 @@ ReactDOM.render((
          <Route path = "/dashboard" component = {Dashboard} />
          <Route path = "/predict" component = {Predict} />
          <Route path = "/score" component = {Score} />
-
+         <Route path = "/history" component = {History} />
    </Router>
 ), document.getElementById("App"))
