@@ -8,10 +8,19 @@ class Score extends Component {
     console.log("OOOO", this.props);
     return (
       <div>
-        <h1>Score Page</h1>
-        <h2><Label circular color='orange' key='orange'>{this.props.location.query.data}</Label></h2>
-        <GoToHome></GoToHome>
-
+          <div className="csm-predivtion-results">
+            <div className="csm-prediction-left-col">
+              <img src="../public/img/ai.png"/>
+            </div>
+            <div className="csm-prediction-right-col">
+              <div className="csm-prediction-right-inner-wrapper">
+                <div className="csm-prediction-right-inner-col">
+                  <p>Your Chances to get this client is</p>
+                  <div className="csm-percentage-result">50{this.props.location.query.data}<span>%</span></div>
+                </div>
+              </div>
+            </div>
+			  	</div>
       </div>
     )
   }
