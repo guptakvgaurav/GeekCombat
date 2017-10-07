@@ -1,16 +1,37 @@
 import React, { Component } from 'react'
 import { Icon, Label, Menu, Table } from 'semantic-ui-react'
+import axios from 'axios'
 
 import GoToHome from './../utils/'
 
 class History extends Component {
+  componentDidMount = () => {
+    console.log('api hit')
+    const config = {
+      method: 'get',
+      url: 'http://localhost:7777/v1/api/history',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type':'application/json',
+        'Accept': 'application/json'
+      }
+    }
+
+    axios(config)
+    .then((response) => {
+      console.log('response', response)
+    })
+    .catch((err) => {
+      console.log('err in axios', err)
+    })
+  }
   render () {
     return (
       <div>
         <h1 className="ui header">This is History</h1>
         <GoToHome></GoToHome>
         <div className='history_table'>
-            <Table celled>
+            <Table celled stackable>
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell>Industry</Table.HeaderCell>
