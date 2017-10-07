@@ -1,6 +1,7 @@
 const path = require('path')
-const extractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
+const extractTextPlugin = require('extract-text-webpack-plugin')
+require('babel-polyfill')
 
 module.exports = {
   entry: {bundle: ['./src/client/components/app.js', 'webpack-hot-middleware/client']},
