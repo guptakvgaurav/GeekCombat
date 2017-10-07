@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import GoToHome from './../utils/'
-import {Label} from 'semantic-ui-react'
-
 
 class Score extends Component {
   render () {

@@ -65,7 +65,6 @@ class History extends Component {
   render () {
     return (
       <div>
-        <h1 className="ui header">This is History</h1>
         <GoToHome></GoToHome>
         <div className='history_table'>
             <Table celled stackable>
