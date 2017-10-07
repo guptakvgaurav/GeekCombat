@@ -1,39 +1,98 @@
 export const companySize = [
-    {key: 'SM', value: 'SMALL', text: '10-50'},
-    {key: 'MD', value: 'MID', text: '100-500'},
-    {key: 'LG', value: 'LARGE', text: '1000-5000'},
-    {key: 'XL', value: 'EXTRALARGE', text: '10000-50000'}
+    {key: 'Company_Size_XS', value: 'Company_Size_L', text: '1-10'},
+    {key: 'Company_Size_S', value: 'Company_Size_S', text: '10-50'},
+    {key: 'Company_Size_M', value: 'Company_Size_M', text: '100-200'},
+    {key: 'Company_Size_L', value: 'Company_Size_L', text: '200-500'},
+    {key: 'Company_Size_XL', value: 'Company_Size_XL', text: '1000-5000'},
+    {key: 'Company_Size_XXL', value: 'Company_Size_L', text: '10000-50000'},
+
 ]
 
-export const companyNames = [
-    {key: 'TTN', value: 'TTN', text: 'TO THE NEW'},
-    {key: 'HCL', value: 'HCL', text: 'HCL'},
-    {key: 'IBM', value: 'IBM', text: 'IBM'},
-    {key: 'AZ', value: 'AZ', text: 'AMAZON'}
+export const techStack = [
+    {key: 'MEAN', value: 'MEAN', text: 'Mean'},
+    {key: 'FEEN', value: 'FEEN', text: 'Feen'},
+    {key: 'JVM', value: 'JVM', text: 'Java'},
+    {key: 'GRAIL', value: 'GRAIL', text: 'Grails'},
+    {key: 'DRUPAL', value: 'DRUPAL', text: 'Drupal'},
+    {key: 'AEM', value: 'AEM', text: 'AEM'},
+
 ]
-export const contactPerson = [
-    {key: 'CTO', value: 'CTO', text: 'CTO'},
-    {key: 'CEO', value: 'CEO', text: 'CEO'},
-    {key: 'MD', value: 'MD', text: 'MD'},
-    {key: 'PM', value: 'PM', text: 'PM'}
+export const companySource = [
+    {key: 'AccountSource._InterCompany', value: 'AccountSource._InterCompany', text: 'Inter company'},
+    {key: 'AccountSource._OLG', value: 'AccountSource._OLG', text: 'OLG'},
+    {key: 'AccountSource._References', value: 'AccountSource._References', text: 'References'},
+    {key: 'AccountSource._SEM', value: 'AccountSource._SEM', text: 'SEM'},
+    {key: 'AccountSource._Website', value: 'AccountSource._Website', text: 'Website '}
 ]
-export const foundedYear = [
-    {key: '2000', value: '2000', text: '2000'},
-    {key: '2001', value: '2001', text: '2001'},
-    {key: '2002', value: '2002', text: '2002'},
-    {key: '2003', value: '2003', text: '2003'},
-    {key: '2004', value: '2004', text: '2004'},
-    {key: '2005', value: '2005', text: '2005'},
-    {key: '2006', value: '2006', text: '2006'},
-    {key: '2007', value: '2007', text: '2007'},
-    {key: '2008', value: '2008', text: '2008'},
-    {key: '2009', value: '2009', text: '2009'},
-    {key: '2010', value: '2010', text: '2010'},
-    {key: '2011', value: '2011', text: '2011'},
-    {key: '2012', value: '2012', text: '2012'},
-    {key: '2013', value: '2013', text: '2013'},
-    {key: '2014', value: '2014', text: '2014'},
-    {key: '2015', value: '2015', text: '2015'},
-    {key: '2016', value: '2016', text: '2016'},
-    {key: '2017', value: '2017', text: '2017'}
+export const regions = [
+    {key: 'TTN_GEO_ANZ', value: 'TTN_GEO_ANZ', text: 'Aus & NZ Land'},
+    {key: 'TTN_GEO_Africa', value: 'TTN_GEO_Africa', text: 'Africa'},
+    {key: 'TTN_GEO_Asia', value: 'TTN_GEO_Asia', text: 'Asia'},
+    {key: 'TTN_GEO_Europe', value: 'TTN_GEO_Europe', text: 'Europe'},
+    {key: 'TTN_GEO_India', value: 'TTN_GEO_India', text: 'India'},
+    {key: 'TTN_GEO_ME', value: 'TTN_GEO_ME', text: 'Middle East'},
+    {key: 'TTN_GEO_US', value: 'TTN_GEO_US', text: 'USA'}
+
 ]
+
+export const industry = [
+    {key: 'Industry_Automobile', value: 'Industry_Automobile', text: 'Automobile'},
+    {key: 'Industry_Aviation', value: 'Industry_Aviation', text: 'Aviation'},
+    {key: 'Industry_BFSI', value: 'Industry_BFSI', text: 'BFSI'},
+    {key: 'Industry_ConsumerElectronics', value: 'Industry_ConsumerElectronics', text: 'Electronics'},
+    {key: 'Industry_E-Learning', value: 'Industry_E-Learning', text: 'E-Learning'},
+    {key: 'Industry_E-commerce', value: 'Industry_E-commerce', text: 'E-commerce'},
+    {key: 'Industry_Education', value: 'Industry_Education', text: 'Education'},
+    {key: 'Industry_FMCG', value: 'Industry_FMCG', text: 'FMCG'},
+    {key: 'Industry_Healthcare', value: 'Industry_Healthcare', text: 'Health care'},
+    {key: 'Industry_Internet', value: 'Industry_Internet', text: 'Internet'},
+    {key: 'Industry_M&E', value: 'Industry_M&E', text: 'M&E'},
+    {key: 'Industry_Publishing', value: 'Industry_Publishing', text: 'Publishing'},
+    {key: 'Industry_Technology', value: 'Industry_Technology', text: 'Technology'},
+    {key: 'Industry_Telecommunication', value: 'Industry_Telecommunication', text: 'Telecommunication'},
+    {key: 'Industry_Others', value: 'Industry_Others', text: 'Others'},
+
+]
+
+
+
+var data = {
+    'Decision_Maker': -0.1424446,
+
+    'TTN_GEO_ANZ': 3.02150664,
+    'TTN_GEO_Africa': 0.0000,
+    'TTN_GEO_Asia': -1.70159207,
+    'TTN_GEO_Europe': -3.65650988,
+    'TTN_GEO_India': 1.33790107,
+    'TTN_GEO_ME': -1.12987849,
+    'TTN_GEO_US': 0.76628446,
+
+    'Company_Size_L': -3.65177683,
+    'Company_Size_M': 1.01995639,
+    'Company_Size_S': 0.09922232,
+    'Company_Size_XL': 1.18832203,
+    'Company_Size_XS': -1.07417402,
+    'Company_Size_XXL': 1.05616183,
+
+    'AccountSource._InterCompany': 0.0000,
+    'AccountSource._OLG': -4.57818248,
+    'AccountSource._References': 3.04174205,
+    'AccountSource._SEM': 0.17415216,
+    'AccountSource._Website': 0.0000,
+
+    'Industry_Automobile': -0.86896223,
+    'Industry_Aviation': 0.0000,
+    'Industry_BFSI': -2.27732349,
+    'Industry_ConsumerElectronics': 0.000,
+    'Industry_E-Learning': 0.000,
+    'Industry_E-commerce': 3.33136871,
+    'Industry_Education': 0.0000,
+    'Industry_FMCG': 0.0000,
+    'Industry_Healthcare': -0.99899002,
+    'Industry_Internet': 2.2503596,
+    'Industry_M&E': -1.53600324,
+    'Industry_Others': -2.73781802,
+    'Industry_Publishing': 0.0000,
+    'Industry_Technology': 1.47508042,
+    'Industry_Telecommunication': 0.0000
+}
