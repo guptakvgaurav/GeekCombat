@@ -10,7 +10,9 @@ const HistorySchema = new Schema({
 	region: { 
 		type: String,
 		enum: ['US','EU','INDIA', 'ASIA-PACIFIC']
-	}
+	},
+	successfull: { type: Boolean },
+	usefull: { type: Boolean }
 }, { timestamps: true })
 
 export default mongoose.model('History', HistorySchema)

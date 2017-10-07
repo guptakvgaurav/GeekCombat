@@ -32,3 +32,21 @@ export const createHistory = (req, res) => {
 
 	})
 }
+
+export const updateHistory = (req, res) => {
+	console.log('here', req.body)
+	History.findOneAndUpdate({
+		_id: req.body.id
+	}, {
+		usefull: req.body.usefull
+	}, (err, doc) => {
+		if (err) {
+			res.send({
+				err: err.message
+			})		
+		}
+		res.status(200).json({
+    		msg: 'success'
+    	})
+	})
+}
