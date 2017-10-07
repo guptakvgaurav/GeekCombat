@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import { Icon, Label, Menu, Table, Button } from 'semantic-ui-react'
 import { Grid, Row, Col } from 'react-bootstrap'
-
 import axios from 'axios'
 import moment from 'moment'
+import FontAwesome from 'react-fontawesome'
 
-import GoToHome from './../utils/'
-import './history.scss'
+import GoToHome from '../../utils/'
+import Navigation from '../navigation'
+import './style.scss'
+
+const baseUrl = 'https://sales-predictor.herokuapp.com/'
 
 class History extends Component {
   constructor(props) {
@@ -17,10 +20,9 @@ class History extends Component {
   }
 
   componentDidMount = () => {
-    console.log('api hit')
     const config = {
       method: 'get',
-      url: 'http://localhost:7777/v1/api/history',
+      url: `${baseUrl}v1/api/history`,
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type':'application/json',
@@ -44,7 +46,7 @@ class History extends Component {
     console.log('api hit', status, id)
     const config = {
       method: 'put',
-      url: 'http://localhost:7777/v1/api/history',
+      url: `${baseUrl}v1/api/history`,
       data: {
         id: id,
         usefull: Boolean(status)
@@ -68,6 +70,7 @@ class History extends Component {
   render () {
     return (
       <div className="history-wrapper">
+        <Navigation />
         <GoToHome></GoToHome>
         <Grid>
           <Row>
@@ -99,8 +102,8 @@ class History extends Component {
                           <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
                           {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
                           <Table.Cell>
-                            <Button primary onClick={this.setStatus.bind(null, item._id, 1)}>Yes</Button>
-                            <Button secondary onClick={this.setStatus.bind(null, item._id, 0)}>No</Button>
+                            <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1)} />
+                            <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0)} />
                           </Table.Cell>
                           {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
                         </Table.Row>

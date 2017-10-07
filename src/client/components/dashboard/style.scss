@@ -1,0 +1,10 @@
+@import "../variables";
+
+.dashboard-wrapper {
+  background: $dashboard-color-primary;
+  height: 100%;
+  h2 {
+    color: #fff;
+    text-align: center  ;
+  }
+}
