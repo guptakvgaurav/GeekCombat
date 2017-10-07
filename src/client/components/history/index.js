@@ -5,7 +5,6 @@ import axios from 'axios'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
 
-import GoToHome from '../../utils/'
 import Navigation from '../navigation'
 import './style.scss'
 
@@ -71,7 +70,6 @@ class History extends Component {
     return (
       <div className="history-wrapper">
         <Navigation />
-        <GoToHome></GoToHome>
         <Grid>
           <Row>
             <Col md={10} smOffset={1}>
