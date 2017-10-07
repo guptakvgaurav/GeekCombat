@@ -6,9 +6,11 @@ const webpackConfig = require('../../webpack.config')
 const path = require('path')
 import morgan from 'morgan'
 import mongoose from 'mongoose'
+import bodyParser from 'body-parser'
 
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/geekCombat'
 
+mongoose.Promise = global.Promise
 mongoose.connect(MONGO_URI, { useMongoClient: true })
 .then(() => {
 	console.log('mongodb connected')
@@ -21,6 +23,8 @@ import history from './history'
 const app = express()
 app.use(express.static(path.join(__dirname, '../dist')))
 app.use(express.static(path.join(__dirname, '../public')))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, {

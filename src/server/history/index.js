@@ -1,8 +1,10 @@
 var express = require('express')
 var router = express.Router()
-import { getHistory } from './controller'
+
+import { getHistory, createHistory } from './controller'
 
 router.route('/')
     .get(getHistory)
+    .post(createHistory)
 
 export default router
