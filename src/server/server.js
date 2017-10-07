@@ -4,14 +4,27 @@ const webpackHotMiddleware = require("webpack-hot-middleware")
 const webpack = require('webpack')
 const webpackConfig = require('../../webpack.config')
 const path = require('path')
+import morgan from 'morgan'
+import mongoose from 'mongoose'
+import bodyParser from 'body-parser'
+
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/geekCombat'
+
+mongoose.Promise = global.Promise
+mongoose.connect(MONGO_URI, { useMongoClient: true })
+.then(() => {
+	console.log('mongodb connected')
+})
+.catch(err => console.log('err in mongodb connection'))
 
 import dashboard from './dashboard'
-
-const router = express.Router()
+import history from './history'
 
 const app = express()
 app.use(express.static(path.join(__dirname, '../dist')))
 app.use(express.static(path.join(__dirname, '../public')))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, {
@@ -19,11 +32,13 @@ app.use(webpackDevMiddleware(compiler, {
 }))
 app.use(webpackHotMiddleware(compiler))
 
+app.use(morgan('dev'))
+app.use('/v1/api/dashboard',dashboard)
+app.use('/v1/api/history', history)
+
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../index.html'))
 })
-
-router.use('/v1/api/dashboard',dashboard)
 
 app.listen(7777, function () {
   console.log('Server is running on PORT 7777')
