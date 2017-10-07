@@ -30,7 +30,8 @@
     "react-router-dom": "^4.2.2",
     "semantic-ui-react": "^0.74.2",
     "webpack-dev-middleware": "^1.12.0",
-    "webpack-hot-middleware": "^2.19.1"
+    "webpack-hot-middleware": "^2.19.1",
+    "youtube-embed-video": "^1.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
