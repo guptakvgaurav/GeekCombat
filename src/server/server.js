@@ -7,6 +7,7 @@ const path = require('path')
 import morgan from 'morgan'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
+var cors = require('cors')
 
 const MONGO_URI = 'mongodb://heroku_fg05wnl1:l131o1po2quvck1qvno8kfedaj@ds113915.mlab.com:13915/heroku_fg05wnl1'
 
@@ -21,6 +22,7 @@ import dashboard from './dashboard'
 import history from './history'
 
 const app = express()
+app.use(cors({credentials: true, origin: true}))
 app.use(express.static(path.join(__dirname, '../dist')))
 app.use(express.static(path.join(__dirname, '../public')))
 app.use(bodyParser.json())
