@@ -14,7 +14,7 @@ class GoToHome extends Component {
 
   render () {
     return (
-      <div>
+      <div className={this.props.className}>
       <h1>
       </h1>
       <Button primary onClick={() => this.goBackToHome()}>Go To Home</Button>
