@@ -8,7 +8,7 @@ import morgan from 'morgan'
 import mongoose from 'mongoose'
 import bodyParser from 'body-parser'
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/geekCombat'
+const MONGO_URI = 'mongodb://heroku_fg05wnl1:l131o1po2quvck1qvno8kfedaj@ds113915.mlab.com:13915/heroku_fg05wnl1'
 
 mongoose.Promise = global.Promise
 mongoose.connect(MONGO_URI, { useMongoClient: true })
