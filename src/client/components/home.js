@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Particles from 'react-particles-js'
 import { Modal, Button } from 'react-bootstrap'
+import YoutubeEmbedVideo from "youtube-embed-video";
 
 import { browserHistory } from 'react-router';
 
@@ -154,17 +155,11 @@ class Dashboard extends Component {
           </div>
         </div>
 
-        {/* Video modal goes here */}
-        <Modal show={this.state.showModal} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
+        <Modal className="video-modal" show={this.state.showModal} onHide={this.closeModal} tabindex="-1">
+          <Modal.Header closeButton />
           <Modal.Body>
-          <h1>asdsadasdasdsdsad</h1>
+            <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="y-MHOE7MpJg" suggestions={false} />
           </Modal.Body>
-          <Modal.Footer>
-            <Button onClick={this.closeModal}>Close</Button>
-          </Modal.Footer>
         </Modal>
       </div>
     )
