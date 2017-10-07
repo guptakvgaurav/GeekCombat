@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700'); 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700');
 
 //variables
 $font-base: arial;
@@ -26,7 +26,7 @@ body#main-wrapper{
     font: 18px Space mono;
     color: #A17878;
     line-height: 1.3;
-    background-color: #000;
+    background-color: #fff;
     margin: 0;
     font-family: 'Lato', sans-serif!important;
     .wrapper {
@@ -127,6 +127,12 @@ body#main-wrapper{
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+.padding-goto{
+  padding-top: 20px;
+}
+.dashboard-header-image{
+  width:50%;
+}
 
 .csm-predivtion-results {
   /* max-width: 500px; */
@@ -161,10 +167,10 @@ body#main-wrapper{
 }
 .csm-prediction-right-inner-col {
   color: #fff;
-  line-height: 1; 
+  line-height: 1;
   font-size: 14px;
   font-family: Open Sans Condensed;
-  padding: 20px;   
+  padding: 20px;
   position: absolute;
   top: 50%;
   left: 50%;

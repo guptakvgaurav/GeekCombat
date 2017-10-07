@@ -150,7 +150,7 @@ class Dashboard extends Component {
           <h1>Some Crazy Machine Learning Line Goes Here</h1>
           <div className="intro-button">
             <a href="#" className="intro-btn" onClick={this.openModal}>Intro</a>
-            <a href="#" className="skip-btn">Skip</a>
+            <a onClick={()=>this.gotoDashboard()} className="skip-btn">Skip</a>
           </div>
         </div>
 
