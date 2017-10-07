@@ -1,1 +1,1 @@
-web: node dist/bundle.js
+web: node src/server.js
