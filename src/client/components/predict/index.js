@@ -3,7 +3,7 @@ import {Form, Select, Checkbox} from 'semantic-ui-react'
 import GoToHome, {getData} from '../../utils/'
 import {browserHistory, Link} from 'react-router'
 import {companySize, regions, companySource,industry, techStack,} from '../../seed'
-import {companySize, regions, companySource,industry, techStack,} from '../seed'
+
 import './predictform.scss'
 
 
@@ -47,11 +47,11 @@ class Predict extends Component {
                             <Form.Group widths='equal' className="form_group_col no-left-padding">
                                 <Form.Input name="companyName" onChange={this.handleChange}
                                             placeholder='Company name'/>
-                                <span className="popup" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide">
+                                <p className="popup" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide">
 
                                     <Link to="chart" target="_blank"
                                         to={`https://in.linkedin.com/company/${this.state.companyInfo.name}`}></Link>
-                                </span>
+                                </p>
 
                             </Form.Group>
                             <Form.Group widths='equal' className="form_group_col">
