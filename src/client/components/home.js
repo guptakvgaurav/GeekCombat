@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router';
 import Introbox from './Introbox'
 import Footer from './Footer'
-import img from './img.png'
 
 class Dashboard extends Component {
   constructor(props) {
