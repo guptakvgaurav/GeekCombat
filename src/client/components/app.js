@@ -1,11 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
+
 import Home from './home.js'
 import Dashboard from './dashboard.js'
 import Predict from './predict.js'
 import Score from './score.js'
-import Footer from './footer.js'
-import Introbox from './introbox.js'
 import History from './history.js'
 
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
@@ -28,8 +27,6 @@ ReactDOM.render((
          <Route path = "/predict" component = {Predict} />
          <Route path = "/score" component = {Score} />
          <Route path = "/score" component = {Score} />
-         <Route path = "/footer" component = {Footer} />
-         <Route path = "/introbox" component = {Introbox} />
          <Route path = "/history" component = {History} />
    </Router>
 ), document.getElementById("App"))
