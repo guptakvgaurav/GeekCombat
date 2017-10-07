@@ -1,5 +1,7 @@
+@import "./variables";
+
 .dashboard-wrapper {
-  background: #2c2d3d;
+  background: $dashboard-color-primary;
   height: 100%;
   h2 {
     color: #fff;

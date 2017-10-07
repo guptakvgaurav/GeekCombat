@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { Icon, Label, Menu, Table, Button } from 'semantic-ui-react'
+import { Grid, Row, Col } from 'react-bootstrap'
+
 import axios from 'axios'
 import moment from 'moment'
 
 import GoToHome from './../utils/'
+import './history.scss'
 
 class History extends Component {
   constructor(props) {
@@ -64,64 +67,70 @@ class History extends Component {
 
   render () {
     return (
-      <div>
+      <div className="history-wrapper">
         <GoToHome></GoToHome>
-        <div className='history_table'>
-            <Table celled stackable>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Company</Table.HeaderCell>
-                  <Table.HeaderCell>Industry</Table.HeaderCell>
-                  <Table.HeaderCell>Point of contact</Table.HeaderCell>
-                  <Table.HeaderCell>Size</Table.HeaderCell>
-                  <Table.HeaderCell>Region</Table.HeaderCell>
-                  <Table.HeaderCell>Date</Table.HeaderCell>
-                  {/*<Table.HeaderCell>Successfull</Table.HeaderCell>*/}
-                  <Table.HeaderCell>Was this helpfull ?</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-
-              <Table.Body>
-                {this.state.data.map((item, index) => {
-                  return (
-                    <Table.Row key={index}>
-                      <Table.Cell>{item.name}</Table.Cell>  
-                      <Table.Cell>{item.industry}</Table.Cell>
-                      <Table.Cell>{item.pointOfContact}</Table.Cell>
-                      <Table.Cell>{item.size}</Table.Cell>
-                      <Table.Cell>{item.region}</Table.Cell>
-                      <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
-                      {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
-                      <Table.Cell>
-                        <Button primary onClick={this.setStatus.bind(null, item._id, 1)}>Yes</Button>
-                        <Button secondary onClick={this.setStatus.bind(null, item._id, 0)}>No</Button>
-                      </Table.Cell>
-                      {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */} 
+        <Grid>
+          <Row>
+            <Col md={10} smOffset={1}>
+              <div className='history-table'>
+                <Table celled stackable>
+                  <Table.Header>
+                    <Table.Row>
+                      <Table.HeaderCell>Company</Table.HeaderCell>
+                      <Table.HeaderCell>Industry</Table.HeaderCell>
+                      <Table.HeaderCell>Point of contact</Table.HeaderCell>
+                      <Table.HeaderCell>Size</Table.HeaderCell>
+                      <Table.HeaderCell>Region</Table.HeaderCell>
+                      <Table.HeaderCell>Date</Table.HeaderCell>
+                      {/*<Table.HeaderCell>Successfull</Table.HeaderCell>*/}
+                      <Table.HeaderCell>Was this helpfull ?</Table.HeaderCell>
                     </Table.Row>
-                  )
-                })}
-              </Table.Body> 
+                  </Table.Header>
 
-              <Table.Footer>
-               {/* <Table.Row>
-                  <Table.HeaderCell colSpan='12'>
-                    <Menu floated='right' pagination>
-                      <Menu.Item as='a' icon>
-                        <Icon name='left chevron' />
-                      </Menu.Item>
-                      <Menu.Item as='a'>1</Menu.Item>
-                      <Menu.Item as='a'>2</Menu.Item>
-                      <Menu.Item as='a'>3</Menu.Item>
-                      <Menu.Item as='a'>4</Menu.Item>
-                      <Menu.Item as='a' icon>
-                        <Icon name='right chevron' />
-                      </Menu.Item>
-                    </Menu>
-                  </Table.HeaderCell>
-                </Table.Row>*/}
-              </Table.Footer>
-            </Table>
-        </div>
+                  <Table.Body>
+                    {this.state.data.map((item, index) => {
+                      return (
+                        <Table.Row key={index}>
+                          <Table.Cell>{item.name}</Table.Cell>
+                          <Table.Cell>{item.industry}</Table.Cell>
+                          <Table.Cell>{item.pointOfContact}</Table.Cell>
+                          <Table.Cell>{item.size}</Table.Cell>
+                          <Table.Cell>{item.region}</Table.Cell>
+                          <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
+                          {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
+                          <Table.Cell>
+                            <Button primary onClick={this.setStatus.bind(null, item._id, 1)}>Yes</Button>
+                            <Button secondary onClick={this.setStatus.bind(null, item._id, 0)}>No</Button>
+                          </Table.Cell>
+                          {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
+                        </Table.Row>
+                      )
+                    })}
+                  </Table.Body>
+
+                  <Table.Footer>
+                    {/* <Table.Row>
+                     <Table.HeaderCell colSpan='12'>
+                     <Menu floated='right' pagination>
+                     <Menu.Item as='a' icon>
+                     <Icon name='left chevron' />
+                     </Menu.Item>
+                     <Menu.Item as='a'>1</Menu.Item>
+                     <Menu.Item as='a'>2</Menu.Item>
+                     <Menu.Item as='a'>3</Menu.Item>
+                     <Menu.Item as='a'>4</Menu.Item>
+                     <Menu.Item as='a' icon>
+                     <Icon name='right chevron' />
+                     </Menu.Item>
+                     </Menu>
+                     </Table.HeaderCell>
+                     </Table.Row>*/}
+                  </Table.Footer>
+                </Table>
+              </div>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }
