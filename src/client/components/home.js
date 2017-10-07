@@ -37,7 +37,7 @@ class Dashboard extends Component {
     const particleConfig = {
       "particles": {
       "number": {
-        "value": 130,
+        "value": 200,
           "density": {
           "enable": true,
             "value_area": 800
