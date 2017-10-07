@@ -18,6 +18,10 @@ class Dashboard extends Component {
     browserHistory.push('/predict')
   }
 
+  gotoHistory = () => {
+    browserHistory.push('/history')
+  }
+
   render () {
     return (
       <div>
