@@ -39,6 +39,14 @@ module.exports = {
         ],
         fallback: "style-loader",
       })},
+      {
+        test: /\.csv$/,
+        use: [
+          {
+            loader: 'dsv-loader'
+          }
+        ]
+      }
     ]
   },
   plugins: [
