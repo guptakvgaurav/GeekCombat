@@ -6,23 +6,17 @@ $link-color: #171717;
 $link-hover-color: #171717;
 $wrapper-width: 980px;
 
-
-*{
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
-
 .company_form {
-  margin-top: 30px;
-  margin-left: 90px;
-  margin-right: 90px;
+    margin-top: 30px;
+    margin-left: 90px;
+    margin-right: 90px;
 }
 .ui_header {
-  text-align: right;
-  margin-right: 85px;
+    text-align: right;
+    margin-right: 85px;
 }
 .center {
-  text-align: center;
+    text-align: center;
 }
 //------------------------------------------------------------//
 
@@ -32,7 +26,7 @@ body#main-wrapper{
     color: #A17878;
     line-height: 1.3;
     background-color: #fff;
-    background: url(./../../public/img/normal.jpg);
+    background-image: url(./../../public/img/normal.jpg);
     background-attachment: fixed;
     background-position: center;
     background-size: 100% auto;
@@ -47,6 +41,38 @@ body#main-wrapper{
         display: block;
         top: 0;
         z-index: -1;
+    }
+    a{
+        text-decoration: none;
+        outline: none;
+        color: $link-color ;
+        transition: all 0.3s ;
+    }
+    a:hover, a:focus {
+        text-decoration: none;
+        color: $link-hover-color;
+        transition: all 0.3s ;
+        box-shadow: 2px 2px 2px #459f45;
+    }
+    p{
+        margin: 0 0 10px;
+    }
+    img{
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+    /*********** Selection Styling *****************/
+    ::-moz-selection {
+        color: #fff;
+        background: #000;
+        text-shadow: none;
+    }
+    ::selection {
+        color: #fff;
+        background: #000;
+        text-shadow: none;
     }
     // Headings
     h1, h2 ,h3 ,h4, h5, h6 {
@@ -181,35 +207,7 @@ body#main-wrapper{
     }
 }
 
-a{
-    text-decoration: none;
-    outline: none;
-    color: $link-color ;
-    transition: all 0.3s ;
-}
-a:hover, a:focus { 
-    text-decoration: none;
-    color: $link-hover-color;
-    transition: all 0.3s ;
-    box-shadow: 2px 2px 2px #459f45;
-}
-p{
-    margin: 0 0 10px;
-}
-img{
-    max-width: 100%;
-    height: auto;
-    width: 100%;
-    display: block;
-}
-/*********** Selection Styling *****************/
-::-moz-selection {
-  color: #fff;
-  background: #000;
-  text-shadow: none;
-}
-::selection {
-  color: #fff;
-  background: #000;
-  text-shadow: none;
+*{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }

@@ -1,8 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router';
-import Introbox from './Introbox'
-import Footer from './Footer'
+import Introbox from './introbox'
+import Footer from './footer'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -15,6 +14,10 @@ class Dashboard extends Component {
 
   gotoPredection =() => {
     browserHistory.push('/predict')
+  }
+
+  gotoHistory = () => {
+    browserHistory.push('/history')
   }
 
   render () {
