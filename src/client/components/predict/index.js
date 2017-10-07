@@ -1,7 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {Form, Select, Checkbox} from 'semantic-ui-react'
-import GoToHome, {getData} from './../utils/'
+import GoToHome, {getData} from '../../utils/'
 import {browserHistory, Link} from 'react-router'
+import {companySize, regions, companySource,industry, techStack,} from '../../seed'
 import {companySize, regions, companySource,industry, techStack,} from '../seed'
 import './predictform.scss'
 
@@ -33,7 +34,7 @@ class Predict extends Component {
         return (
             <div className="csm-predict-input-form-wrapper modal__container">
                 <div className="modal__featured csm-predict-input-form-left">
-                    
+
                     <div className="modal__circle"></div>
                        <img src="../../img/oct.png" className="modal__product" />
                 </div>
@@ -47,31 +48,31 @@ class Predict extends Component {
                                 <Form.Input name="companyName" onChange={this.handleChange}
                                             placeholder='Company name'/>
                                 <span className="popup" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide">
-                                  
+
                                     <Link to="chart" target="_blank"
                                         to={`https://in.linkedin.com/company/${this.state.companyInfo.name}`}></Link>
                                 </span>
-                               
-                            </Form.Group>                           
+
+                            </Form.Group>
                             <Form.Group widths='equal' className="form_group_col">
                                   <Select placeholder='Select company size' options={companySize}/>
                             </Form.Group>
                             <Form.Group widths='equal' className="form_group_col">
                                 <Select placeholder='Select Region' options={regions}/>
                             </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">                                
+                            <Form.Group widths='equal' className="form_group_col">
                                 <Select placeholder='Select Industry' options={industry}/>
                             </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">                                
+                            <Form.Group widths='equal' className="form_group_col">
                                <Checkbox label={{ children: 'Is contact person decision maker' }}/>
                             </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">                                
+                            <Form.Group widths='equal' className="form_group_col">
                             <Select placeholder='Account Source ' options={companySource}/>
                             </Form.Group>
-                            
+
                             <Form.Group widths='equal' className="form_group_col">
-                                
-                                
+
+
                                 <Select placeholder='Company Tech Stack' options={techStack}/>
                             </Form.Group>
 
