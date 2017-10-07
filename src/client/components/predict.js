@@ -23,18 +23,6 @@ class Predict extends Component {
     }
 
     handleChange = (e, {value}) => this.setState({value})
-
-    render() {
-        return (
-            <div>
-                <h1 className="ui header">Predict Screen</h1>
-                <GoToHome className="ui_header"></GoToHome>
-                  <button className="ui ui_header violet button" role="button" onClick={() => this.getAPIData()}>Get API Response</button>
-                    <button className="ui ui_header violet button" role="button" onClick={() => this.gotoScore()}>Go To Score</button>
-
-
-handleChange = (e, {value}) => this.setState({value})
-
 render() {
   return (
     <div>

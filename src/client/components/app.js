@@ -4,6 +4,9 @@ import Home from './home.js'
 import Dashboard from './dashboard.js'
 import Predict from './predict.js'
 import Score from './score.js'
+import Footer from './footer.js'
+import Introbox from './introbox.js'
+
 
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 
@@ -24,6 +27,8 @@ ReactDOM.render((
          <Route path = "/dashboard" component = {Dashboard} />
          <Route path = "/predict" component = {Predict} />
          <Route path = "/score" component = {Score} />
-
+         <Route path = "/score" component = {Score} />
+         <Route path = "/footer" component = {Footer} />
+         <Route path = "/introbox" component = {Introbox} />
    </Router>
 ), document.getElementById("App"))
