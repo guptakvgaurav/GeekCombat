@@ -40,6 +40,6 @@ app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../index.html'))
 })
 
-app.listen(7777, function () {
+app.listen(process.env.PORT || 7777, function () {
   console.log('Server is running on PORT 7777')
 })
