@@ -1,23 +1,24 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom'
-import { browserHistory } from 'react-router';
-import { Button } from 'semantic-ui-react'
+import React, { Component, PropTypes } from 'react'
+import { Button } from 'react-bootstrap'
+import { browserHistory } from 'react-router'
 import axios from 'axios'
+
 class GoToHome extends Component {
   constructor(props) {
     super(props);
   }
 
-  goBackToHome =() => {
+  goBackToHome = (e) => {
+    e.preventDefault();
     browserHistory.push('/')
   }
 
   render () {
     return (
-      <div className={this.props.className}>
-      <h1>
-      </h1>
-      <Button content='Go To Home' icon='left arrow' labelPosition='left' onClick={() => this.goBackToHome()}></Button>
+      <div>
+        <a href onClick={(e) => {this.goBackToHome(e)}}>
+          Go Back
+        </a>
       </div>
     )
   }
