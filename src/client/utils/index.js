@@ -17,7 +17,7 @@ class GoToHome extends Component {
       <div className={this.props.className}>
       <h1>
       </h1>
-      <Button primary onClick={() => this.goBackToHome()}>Go To Home</Button>
+      <Button content='Go To Home' icon='left arrow' labelPosition='left' onClick={() => this.goBackToHome()}></Button>
       </div>
     )
   }
