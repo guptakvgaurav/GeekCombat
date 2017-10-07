@@ -1,8 +1,8 @@
 import React, {Component, PropTypes} from 'react'
 import {Form, Select, Checkbox} from 'semantic-ui-react'
-import GoToHome, {getData} from './../utils/'
+import GoToHome, {getData} from '../../utils/'
 import {browserHistory, Link} from 'react-router'
-import {companySize, regions, companySource,industry, techStack,} from '../seed'
+import {companySize, regions, companySource,industry, techStack,} from '../../seed'
 
 
 class Predict extends Component {

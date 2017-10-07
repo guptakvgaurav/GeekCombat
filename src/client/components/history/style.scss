@@ -1,0 +1,50 @@
+@import "../variables";
+#main-wrapper {
+  .history-wrapper {
+    background: $dashboard-color-primary;
+    height: 100%;
+    overflow-y: scroll;
+    .history-table {
+      .table {
+        background: #263141;
+        thead {
+          background: #303d4d;
+          border-top: 1px solid;
+          border-color: rgba(158, 156, 150, 0.1);
+          border-left: none;
+          th {
+            background: transparent;
+            font-weight: 100;
+            color: #91ADC5;
+            font-size: 16px;
+          }
+        }
+        td {
+          color: #fff;
+          font-size: 15px;
+          border-left: none;
+          text-transform: capitalize;
+          font-weight: 100;
+          border-top: 1px solid rgba(158, 156, 150, 0.1);
+          padding-top: 18px;
+          padding-bottom: 18px;
+          .fa-thumbs-up {
+            color: #61bb4a;
+          }
+          .fa-thumbs-down {
+            color: #eb4949;
+          }
+          .fa {
+            font-size: 22px;
+            margin-right: 10px;
+            cursor: pointer;
+            transition:  0.4s ease;
+            &:hover {
+              transform: rotateZ(360deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
