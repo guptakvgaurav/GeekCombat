@@ -183,11 +183,23 @@ body#main-wrapper{
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
+  background: #162631;
 }
 .csm-prediction-left-col {
   width: 0%;
   float: left;
   display: inline-block;
+}
+.csm-prediction-right-inner-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%);
+  height: 100%;
+  width: 100%;
+  max-width: 380px;
+  max-height: 380px;
+  z-index: 9999;
 }
 
 .csm-prediction-right-col {
@@ -203,20 +215,46 @@ body#main-wrapper{
   line-height: 1;
   font-size: 14px;
   font-family: Open Sans Condensed;
-  padding: 20px;
+  padding: 30px 25px 20px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50% ,-50%);
+  transform: translate(-50%, -50%);
+  border: 1px solid #f7eded;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  max-width: 300px;
+  max-height: 300px;
+  background: #162631;
+  p{
+    margin: 0;
+  }
+  &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(58, 57, 57, 0.1);
+      border-radius: 50%;
+  }
+
 }
 .csm-prediction-right-inner-col .csm-percentage-result{
-  font-size: 225px;
+  font-size: 185px;
   line-height: 1;
   font-family: Open Sans Condensed;
   font-weight: 300;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .csm-prediction-right-inner-col .csm-percentage-result span{
-  font-size:20px;
+  font-size:65px;
 }
 
 @-webkit-keyframes Gradient {
@@ -253,4 +291,64 @@ body#main-wrapper{
   100% {
       background-position: 0% 50%
   }
+}
+.csm-background-graphs-img {
+  width: 100%;
+  height: 100%;
+  max-width: 150px;
+  max-height: 150px;
+  position: absolute;
+  z-index: 1;
+  top: 50px;
+  left: 50px;
+  opacity: 0.1;
+  &.csm-background-graphs-02 {
+      top: 50%;
+      left: 68%;
+      opacity: 0.1;
+  }
+  &.csm-background-graphs-03 {
+      top: 20%;
+      left: 80%;
+      opacity: 0.1;
+  }
+  &.csm-background-graphs-04 {
+      top: 10%;
+      left: 68%;
+      opacity: 0.1;
+  }
+  &.csm-background-graphs-05 {
+      top: 60%;
+      left: 8%;
+      opacity: 0.1;
+  }
+  &.csm-background-graphs-06 {
+    top: 59%;
+    left: 6%;
+    opacity: 0.05;
+    max-width: 250px;
+    max-height: 250px;
+  }
+  &.csm-background-graphs-07 {
+    top: 40%;
+    left: 49%;
+    opacity: 0.1;
+  }
+  &.csm-background-graphs-08 {
+    top: 20%;
+    left: 79%;
+    opacity: 0.1;
+  }
+  &.csm-background-graphs-09 {
+    top: 45%;
+    left: 89%;
+    opacity: 0.03;
+  }
+}
+.csm-background-graphs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

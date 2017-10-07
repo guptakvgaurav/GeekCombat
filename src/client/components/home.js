@@ -158,6 +158,7 @@ class Dashboard extends Component {
         <Modal className="video-modal" show={this.state.showModal} onHide={this.closeModal} tabindex="-1">
           <Modal.Header closeButton />
           <Modal.Body>
+            
             <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="y-MHOE7MpJg" suggestions={false} />
           </Modal.Body>
         </Modal>
