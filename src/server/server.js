@@ -11,6 +11,7 @@ const router = express.Router()
 
 const app = express()
 app.use(express.static(path.join(__dirname, '../dist')))
+app.use(express.static(path.join(__dirname, '../public')))
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, {

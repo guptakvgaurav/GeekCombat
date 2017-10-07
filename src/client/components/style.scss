@@ -1,20 +1,10 @@
-$bgcolor: teal;
-
-body {
-  background: $bgcolor;
-  h1 {
-    text-align: center;
-    color: #000;
-    font-size: 50px;
-    font-variant: georgia,
-  }
-}
-h2{
-  color: #000;
-  text-decoration: underline;
-  cursor: pointer;
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Alegreya+SC|Space+Mono');
+//variables
+$font-base: arial;
+$link-color: #171717;
+$link-hover-color: #171717;
+$wrapper-width: 980px;
 
 .company_form {
   margin-top: 30px;
@@ -27,4 +17,193 @@ h2{
 }
 .center {
   text-align: center;
+}
+//------------------------------------------------------------//
+
+//Styling
+body{
+    font: 18px Space mono;
+    color: #A17878;
+    line-height: 1.3;
+    background-color: #fff;
+    //background-image: url(./../../public/img/normal.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    margin: 0;
+    &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.1);
+        display: block;
+        top: 0;
+        z-index: -1;
+    }
+}
+
+*{
+   box-sizing: border-box;
+   -webkit-tap-highlight-color: transparent;
+}
+a{
+    text-decoration: none;
+    outline: none;
+    color: $link-color ;
+    transition: all 0.3s ;
+}
+a:hover, a:focus {
+    text-decoration: none;
+    color: $link-hover-color;
+    transition: all 0.3s ;
+    box-shadow: 2px 2px 2px #459f45;
+}
+p{
+    margin: 0 0 10px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    display: block;
+}
+/*********** Selection Styling *****************/
+::-moz-selection {
+  color: #fff;
+  background: #000;
+  text-shadow: none;
+}
+::selection {
+  color: #fff;
+  background: #000;
+  text-shadow: none;
+}
+// Headings
+h1, h2 ,h3 ,h4, h5, h6 {
+  margin: 0 0 15px
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {}
+h1{
+    font-size: 40px;
+}
+h2{
+    font-size: 28px
+}
+h3{
+    font-size: 24px
+}
+h4{
+    font-size: 22px
+}
+h5{
+    font-size: 20px
+}
+h6{
+    font-size: 18px
+}
+ul{
+    padding: 0;
+    margin: 0 0 15px ;
+    list-style: none;
+}
+ol{
+    padding: 0;
+    margin: 0 0 15px ;
+}
+.clear{
+    float: left;
+    width:100%;
+    clear: both;
+}
+.clearfix{
+    clear: both;
+    &:after{
+        clear: both;
+        display: table;
+        content: '';
+    }
+}
+.wrapper{
+    max-width: $wrapper-width;
+    margin: 0 auto;
+	float:none;
+}
+//Header Footer Styling
+.csm-footer-wrapper {
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    height: 39px;
+    &:after {
+        display: inline-block;
+        background: #fff;
+        content: '';
+        width: 100%;
+        left: 0;
+        right: 0;
+        height: 25px;
+        transform:rotate(-0.8deg);
+    }
+}
+.csm-full-body-inner-wrapper {
+
+}
+.csm-intro-screen-text {
+    margin: 0 0 30px;
+    img{
+        max-width: 90px;
+        display: inline-block;
+        opacity: 0.7;
+    }
+}
+.csm-body-content-wrapper {
+    height: calc(100% - 100px);
+//    background: -moz-linear-gradient(top, #8e00fd 0%, #8e00fd 100%);
+  //  background: -webkit-linear-gradient(top, #8e00fd 0%, #8e00fd 100%);
+    //background: linear-gradient(to bottom, #8e00fd 0%, #8e00fd 100%);
+}
+.csm-intro-screen {
+    width: 100%;
+    text-shadow: 2px 2px 12px rgba(183, 153, 153, 0.2);
+    font-size: 1em;
+    max-width: 400px;
+    padding: 40px 25px 20px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 400px;
+    border: 3px solid rgba(255, 242, 242, 0.5);
+    background: rgba(251, 247, 247, 0.3);
+    box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.5);
+    &:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.2);
+        width: 95%;
+        height: 95%;
+        display: block;
+        border-radius: 50%;
+        z-index: -2;
+        border: 5px solid #fff;
+    }
+    .btn {
+      button ,a{
+          display: inline-block;
+          padding: 5px 10px;
+          border: 1px solid #fff;
+          margin: 10px;
+      }
+    }
+    .csm-intro-btn {
+        margin: 0 0 15px;
+    }
 }

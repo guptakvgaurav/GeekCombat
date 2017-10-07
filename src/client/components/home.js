@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom'
 import { browserHistory } from 'react-router';
+import Introbox from './Introbox'
+import Footer from './Footer'
+import img from './img.png'
 
 class Dashboard extends Component {
   constructor(props) {
@@ -18,11 +21,22 @@ class Dashboard extends Component {
   render () {
     return (
       <div>
-      <h1 className="ui header">
-      Splash Screen
-      </h1>
-      <button className="ui violet button" role="button" onClick={() => this.gotoDashboard()}>Go To Dashboard</button>
-      <button className="ui purple button" role="button" onClick={() => this.gotoPredection()}>Go To Predection</button>
+        <div className="csm-full-body-inner-wrapper">
+          <div className="csm-header-wrapper">
+            <div className="wrapper">
+            </div>
+          </div>
+          <div className="csm-body-content-wrapper">
+            <div className="wrapper">
+              <div className="csm-home-screen-left-content">
+              </div>
+              <div className="csm-home-screen-right-content">
+                <Introbox/>
+              </div>
+            </div>
+          </div>
+          <Footer/>
+        </div>
       </div>
     )
   }
