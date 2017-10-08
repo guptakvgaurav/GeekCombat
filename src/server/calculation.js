@@ -23,7 +23,7 @@ let data = {
     'Company_Size_XS': 0.06606255,
     'Company_Size_XXL': 0.4041682,
 
-    'AccountSource._Inter Company': 0.07087807,
+    'AccountSource._InterCompany': 0.07087807,
     'AccountSource._OLG': -0.22783232,
     'AccountSource._References': 0.42078672,
     'AccountSource._SEM': 0.20093201,
@@ -46,7 +46,7 @@ let data = {
     'Industry_Telecommunication': 0.0000
 }
 
-function calculation (decisionMaker, companySize, geo, accountSource, industry) {
+export const calculation = (decisionMaker, companySize, geo, accountSource, industry) => {
     let d_m_result = 0;
     let c_s_result = 0;
     let geo_result = 0;
@@ -78,4 +78,4 @@ function calculation (decisionMaker, companySize, geo, accountSource, industry) 
     return ((sum + 1)/2);
 };
 
-console.log(calculation(0, 'Company_Size_L', 'TTN_GEO_Africa', 'AccountSource._Website', 'Industry_FMCG'))
+console.log(calculation(1, 'Company_Size_L', 'TTN_GEO_ANZ', 'AccountSource._InterCompany', 'Industry_Automobile'))
