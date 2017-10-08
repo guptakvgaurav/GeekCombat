@@ -4,8 +4,8 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
+import Loader from 'react-loader'
 
-import GoToHome from '../../utils/'
 import Navigation from '../navigation'
 import './style.scss'
 
@@ -15,7 +15,8 @@ class History extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      loaded: false
     }
   }
 
@@ -34,7 +35,8 @@ class History extends Component {
     .then((response) => {
       console.log('response', response)
       this.setState({
-        data: response.data.data
+        data: response.data.data,
+        loaded: true
       })
     })
     .catch((err) => {
@@ -78,24 +80,24 @@ class History extends Component {
         <Navigation />
         <Grid>
           <Row>
-            <Col md={10} smOffset={1}>
+            <Col md={12}>
               <div className='history-table'>
-                <Table celled stackable>
-                  <Table.Header>
-                    <Table.Row>
-                      <Table.HeaderCell>Company</Table.HeaderCell>
-                      <Table.HeaderCell>Industry</Table.HeaderCell>
-                      <Table.HeaderCell>Point of contact</Table.HeaderCell>
-                      <Table.HeaderCell>Size</Table.HeaderCell>
-                      <Table.HeaderCell>Regisssson</Table.HeaderCell>
-                      <Table.HeaderCell>Date</Table.HeaderCell>
-                      <Table.HeaderCell>Probablity</Table.HeaderCell>
+                <Loader loaded={this.state.loaded} color="#fff">
+                  <Table celled stackable>
+                    <Table.Header>
+                      <Table.Row>
+                        <Table.HeaderCell>Company</Table.HeaderCell>
+                        <Table.HeaderCell>Industry</Table.HeaderCell>
+                        <Table.HeaderCell>Point of contact</Table.HeaderCell>
+                        <Table.HeaderCell>Size</Table.HeaderCell>
+                        <Table.HeaderCell>Regisssson</Table.HeaderCell>
+                        <Table.HeaderCell>Date</Table.HeaderCell>
+                        <Table.HeaderCell>Probablity</Table.HeaderCell>
 
-                      {/*<Table.HeaderCell>Successfull</Table.HeaderCell>*/}
-                      <Table.HeaderCell>Was this helpfull ?</Table.HeaderCell>
-                    </Table.Row>
-                  </Table.Header>
-
+                        {/*<Table.HeaderCell>Successfull</Table.HeaderCell>*/}
+                        <Table.HeaderCell>Was this helpfull ?</Table.HeaderCell>
+                      </Table.Row>
+                    </Table.Header>
                   <Table.Body>
                     {this.state.data.map((item, index) => {
                       let fa_like_icon = '';
@@ -131,26 +133,26 @@ class History extends Component {
                       )
                     })}
                   </Table.Body>
-
-                  <Table.Footer>
-                    {/* <Table.Row>
-                     <Table.HeaderCell colSpan='12'>
-                     <Menu floated='right' pagination>
-                     <Menu.Item as='a' icon>
-                     <Icon name='left chevron' />
-                     </Menu.Item>
-                     <Menu.Item as='a'>1</Menu.Item>
-                     <Menu.Item as='a'>2</Menu.Item>
-                     <Menu.Item as='a'>3</Menu.Item>
-                     <Menu.Item as='a'>4</Menu.Item>
-                     <Menu.Item as='a' icon>
-                     <Icon name='right chevron' />
-                     </Menu.Item>
-                     </Menu>
-                     </Table.HeaderCell>
-                     </Table.Row>*/}
-                  </Table.Footer>
-                </Table>
+                    <Table.Footer>
+                      {/* <Table.Row>
+                       <Table.HeaderCell colSpan='12'>
+                       <Menu floated='right' pagination>
+                       <Menu.Item as='a' icon>
+                       <Icon name='left chevron' />
+                       </Menu.Item>
+                       <Menu.Item as='a'>1</Menu.Item>
+                       <Menu.Item as='a'>2</Menu.Item>
+                       <Menu.Item as='a'>3</Menu.Item>
+                       <Menu.Item as='a'>4</Menu.Item>
+                       <Menu.Item as='a' icon>
+                       <Icon name='right chevron' />
+                       </Menu.Item>
+                       </Menu>
+                       </Table.HeaderCell>
+                       </Table.Row>*/}
+                    </Table.Footer>
+                  </Table>
+                </Loader>
               </div>
             </Col>
           </Row>

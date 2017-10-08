@@ -1,15 +1,17 @@
 import React, {Component, PropTypes} from 'react'
 import {Form, Select, Checkbox} from 'semantic-ui-react'
-import GoToHome, {getData} from '../../utils/'
 import {browserHistory, Link} from 'react-router'
-// import toaster from 'react-toaster-js';
 import {companySize, regions, companySource,industries, techStacks, accountSources} from '../../seed'
 import axios from 'axios'
-const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
-import './predictform.scss'
+import FontAwesome from 'react-fontawesome'
+
+import Navigation from '../navigation'
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
+const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
+
+import './style.scss'
 
 class Predict extends Component {
 
@@ -113,75 +115,66 @@ class Predict extends Component {
     render() {
         let { name, size, region, isDecisionMaker, techStack, accountSource, industry } = this.state;
         return (
-            <div>
-                <ToastContainer ref={(input) => {this.container = input;}}
+          <div className="predict-wrapper">
+              <Navigation />
+              <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right"
                         preventDuplicates="true" />
-                <div className="csm-predict-input-form-wrapper modal__container">
-                    <div className="modal__featured csm-predict-input-form-left">
-
-                        <div className="modal__circle"></div>
-                        <img src="../../img/oct.png" className="modal__product" />
-                    </div>
-                    <div className="company_form">
-                        <Form className="form_class">
-                            <Form.Group widths='equal' className="form_group_col no-left-padding">
-
-                                <Form.Input name="companyName" 
-                                            onChange={ (e, d) => this.onCompanyNameChanged(e, d)}
-                                            placeholder='Company name'
-                                            value={ name }/>
-                                <p className="popup" data-content="Hello. This is a wide pop-up which allows for lots of content with additional space. You can fit a lot of words here and the paragraphs will be pretty wide." data-variation="wide" />
-                                
-                                    <Link   target="_blank"
-                                            to={`https://in.linkedin.com/company/${this.state.name}`}>
-                                            Search On Linkedin
-                                    </Link>
-                            </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">
-                                <Select placeholder='Select company size' 
-                                        options={companySize}
-                                        onChange = {(e, d) => this.onCompanySizeChanged(e, d)}
-                                        value={size}/>
-                            </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">
-                                <Select placeholder='Select Region' 
-                                        options={regions}
-                                        onChange = {(e, d) => this.onRegionChanged(e, d)}
-                                        value={ region }/>
-                            </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">
-                                <Select placeholder='Select Industry' 
-                                        options={industries}
-                                        onChange = {(e, d) => this.onIndustryChanged(e, d)}
-                                        value={ industry }/>
-                            </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">
-                                <Checkbox   label={{ children: 'Is contact person decision maker' }}
-                                            value={ this.state.isDecisionMaker }
-                                            onChange = { (e, d) => this.onDecisionChanged(e, d)}/>
-                            </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">
-                                <Select     placeholder='Account Source ' 
-                                            options={ accountSources }
-                                            onChange = {(e, d) => this.onAccountSourceChanged(e, d)}
-                                            value={ accountSource }/>
-                            </Form.Group>
-                            <Form.Group widths='equal' className="form_group_col">
-                                <Select     placeholder='Company Tech Stack' 
-                                            options={techStacks}
-                                            onChange = {(e, d) => this.onTechStackChanged(e, d)}
-                                            value={ techStack }/>
-                            </Form.Group>
-
-                            <div className="center">
-                                <Form.Button onClick={() =>this.submitAccountDetail()}>Predict</Form.Button>
-                            </div>
-                        </Form>
-                    </div>
-                </div>
-            </div>
+              <div className="company_form">
+                  <Form className="form_class">
+                      <Form.Group widths='equal' className="form_group_col no-left-padding">
+                          <Form.Input name="companyName"
+                                      onChange={ (e, d) => this.onCompanyNameChanged(e, d)}
+                                      placeholder='Company name'
+                                      value={ name }/>
+                          <Link className="search-linkedin" target="_blank"
+                                to={`https://in.linkedin.com/company/${this.state.name || "tothenew"}`}>
+                              <FontAwesome name="search" />
+                              <FontAwesome name="linkedin" />
+                          </Link>
+                      </Form.Group>
+                      <Form.Group widths='equal' className="form_group_col">
+                          <Select placeholder='Select company size'
+                                  options={companySize}
+                                  onChange = {(e, d) => this.onCompanySizeChanged(e, d)}
+                                  value={size}/>
+                      </Form.Group>
+                      <Form.Group widths='equal' className="form_group_col">
+                          <Select placeholder='Select Region'
+                                  options={regions}
+                                  onChange = {(e, d) => this.onRegionChanged(e, d)}
+                                  value={ region }/>
+                      </Form.Group>
+                      <Form.Group widths='equal' className="form_group_col">
+                          <Select placeholder='Select Industry'
+                                  options={industries}
+                                  onChange = {(e, d) => this.onIndustryChanged(e, d)}
+                                  value={ industry }/>
+                      </Form.Group>
+                      <Form.Group widths='equal' className="form_group_col">
+                          <Select placeholder='Account Source '
+                                  options={ accountSources }
+                                  onChange = {(e, d) => this.onAccountSourceChanged(e, d)}
+                                  value={ accountSource }/>
+                      </Form.Group>
+                      <Form.Group widths='equal' className="form_group_col">
+                          <Select placeholder='Company Tech Stack'
+                                  options={techStacks}
+                                  onChange = {(e, d) => this.onTechStackChanged(e, d)}
+                                  value={ techStack }/>
+                      </Form.Group>
+                      <Form.Group widths='equal' className="form_group_col">
+                          <Checkbox label={{ children: 'Is contact person decision maker' }}
+                                    value={ this.state.isDecisionMaker }
+                                    onChange = { (e, d) => this.onDecisionChanged(e, d)}/>
+                      </Form.Group>
+                      <div className="center">
+                          <Form.Button onClick={() =>this.submitAccountDetail()}>Predict</Form.Button>
+                      </div>
+                  </Form>
+              </div>
+          </div>
         )
     }
 }

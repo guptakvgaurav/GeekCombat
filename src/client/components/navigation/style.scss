@@ -1,39 +1,61 @@
 @import "../variables";
 
-.navigation {
-  padding-top: 35px;
-  .navbar {
-    background: $navbar-color;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
-    border-color: rgba(158, 156, 150, .1);
-    padding: 16px 0 12px;
-    .navbar-brand {
-      color: #fff!important;
+#main-wrapper {
+  .navigation {
+    padding-top: 10px;
+    h3 {
+      color: #ffffff;
+      font-weight: 300;
+      margin-bottom: 10px;
+      font-size: 14px;
     }
-    .navigation-btns {
-      & > div {
-        display: inline-block;
-        width: 50%;
-        &:first-child {
-          text-align: left;
-          padding-left:30px;
-        }
-        a {
-          color: #fff!important;
-        }
+    .navbar {
+      background: $navbar-color;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+      border-color: rgba(158, 156, 150, .1);
+      padding: 10px 0 2px;
+      border-radius: 0;
+      .navbar-brand {
+        color: #fff !important;
+        /* font-weight: 100; */
+        padding-top: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
       }
-      .btn {
-        background: #f7ee7a;
-        border: none;
-        border-radius: 0;
-        font-size: 18px;
-        padding: 10px 18px;
-        min-width: 215px;
-        outline: none;
-      }
-      .predict-btn {
-        margin-left: 30px;
+      .navigation-btns {
+        & > div {
+          display: inline-block;
+          width: 50%;
+          &:first-child {
+            text-align: left;
+            padding-left:30px;
+          }
+          a {
+            color: #fff!important;
+          }
+        }
+        .btn {
+          background: transparent;
+          border-radius: 0;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          font-size: 14px;
+          padding: 10px 12px;
+          min-width: 150px;
+          outline: none;
+          color: #fff;
+          font-weight: 100;
+          transition: all 0.3s;
+          &:hover {
+            border-color: #279AF2;
+            outline: none;
+            background: #279AF2;
+            color: #fff;
+          }
+        }
+        .predict-btn {
+          margin-left: 30px;
+        }
       }
     }
   }

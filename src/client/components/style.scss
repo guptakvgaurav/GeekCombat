@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700');
 @import "./variables";
 
-.company_form {
-    margin-top: 30px;
-    margin-left: 90px;
-    margin-right: 90px;
-}
 .ui_header {
     text-align: right;
     margin-right: 85px;
@@ -86,32 +81,29 @@ body#main-wrapper{
       }
     }
   }
-  /*********** Selection Styling *****************/
-  ::-moz-selection {
-      color: #fff;
-      background: #000;
-      text-shadow: none;
-  }
-  ::selection {
-      color: #fff;
-      background: #000;
-      text-shadow: none;
-  }
+
   .intro {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      position: fixed;
-      top: 48%;
-      left: calc(50% - 300px);
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 300px);
+    transform: translateY(-50%);
       h1 {
-          font-size: 32px;
-          color: #ffffff;
-          font-weight: 200;
-          text-transform: uppercase;
+        font-size: 50px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 77px;
+        text-transform: uppercase;
+      }
+      h2{
+        font-size: 32px;
+        color: #ffffff;
+        font-weight: 200;  
       }
      .intro-button {
-         margin-top: 100px;
+         margin-top: 70px;
          a {
            background-color: transparent;
            border: 1px solid rgba(255, 255, 255, 0.3);
@@ -153,6 +145,8 @@ body#main-wrapper{
 }
 #App {
   height: 100%;
+  background: $dashboard-color-primary;
+  overflow: auto;
 }
 *{
     box-sizing: border-box;
@@ -248,7 +242,7 @@ body#main-wrapper{
   p{
     margin: 0;
   }
- 
+
   &:after {
       content: '';
       width: 100%;
@@ -371,6 +365,15 @@ body#main-wrapper{
   width: 100%;
   height: 100%;
 }
+.modal-content h1 {
+    color: #ffffff;
+    font-weight: 200;
+    text-transform: uppercase;
+    position: absolute;
+    top: -33px;
+}
+
+
 @media only screen and (max-width: 767px) {
     .csm-predivtion-results{
         padding: 20px;

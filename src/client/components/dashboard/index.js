@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { Grid, Row, Col } from 'react-bootstrap'
+import { browserHistory} from 'react-router';
 import { Button } from 'react-bootstrap'
 import axios from 'axios'
+import Loader from 'react-loader'
+
 import GoToHome from '../../utils';
-import { browserHistory} from 'react-router';
 import Navigation from '../navigation'
 
 // import './dashboard.scss'
@@ -13,6 +16,7 @@ const baseUrl = 'https://oracleai.herokuapp.com/'
 
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index,...others}) => {
+  const RADIAN = Math.PI / 180;
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x  = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy  + radius * Math.sin(-midAngle * RADIAN);
@@ -32,32 +36,34 @@ class Dashboard extends Component {
     this.state = {
       data: [],
       pieData: [],
-      finalData: []
+      finalData: [],
+      loaded: false
     }
   }
 
   createGrapqh = () => {
     const chartData = this.state.data
+    console.log('chart', chartData)
     const initialData = {}
 
     chartData.forEach((data,i) => {
-      const region = data.TTN_GEO
-      const size = data.Company_Size
+      const region = data.region
+      const size = data.size
       initialData[region] = { win: 0, loss: 0}
     })
 
     const initialPieData = {}
 
     chartData.forEach((data,i) => {
-      const size = data.Company_Size
+      const size = data.size
       initialPieData[size] = { win: 0}
     })
 
 
     chartData.forEach((data,i) => {
-      const region = data.TTN_GEO
-      if (Object.keys(initialData).indexOf(data.TTN_GEO) !== -1) {
-        if (data.actualOutcome === '0') {
+      const region = data.region
+      if (Object.keys(initialData).indexOf(data.region) !== -1) {
+        if (!data.actualOutcome) {
           initialData[region]['loss']++
         } else {
           initialData[region]['win']++
@@ -67,9 +73,9 @@ class Dashboard extends Component {
     })
 
     chartData.forEach((data,i) => {
-      const size = data.Company_Size
-      if (Object.keys(initialPieData).indexOf(data.Company_Size) !== -1) {
-        if (data.actualOutcome === '0') {
+      const size = data.size
+      if (Object.keys(initialPieData).indexOf(data.size) !== -1) {
+        if (!data.actualOutcome) {
           initialPieData[size]['loss']++
         } else {
           initialPieData[size]['win']++
@@ -100,12 +106,10 @@ class Dashboard extends Component {
     console.log('pieData', pieData)
     this.setState({
       finalData: finalData,
-      pieData: pieData
+      pieData: pieData,
+      loaded: true
     })
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
-    const RADIAN = Math.PI / 180;                    
   }
 
   componentDidMount() {
@@ -123,7 +127,7 @@ class Dashboard extends Component {
     .then((response) => {
       console.log('response', response)
       this.setState({
-        data: response.data
+        data: response.data.data
       }, () => this.createGrapqh())
     })
     .catch((err) => {
@@ -138,46 +142,46 @@ class Dashboard extends Component {
     browserHistory.push({pathname: '/predict', query: {} })
   }
   render () {
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
     return (
       <div className="dashboard-wrapper">
-        <div className="navigation-btns">
-          <Navigation />
-          <GoToHome ></GoToHome>
-          <div>
-            <Button className="review-btn" onClick={() => this.goToReview()}>
-              Review Old Prediction
-            </Button>
-            <Button className="predict-btn" onClick={() => this.goToPrediction()}>
-              Predict
-            </Button>
-          </div>
-        </div>
-        {this.state.finalData.length > 0 ? <div>
-          <h2>Analytics</h2>
-          <BarChart width={600} height={300} data={this.state.finalData}
-              margin={{top: 20, right: 30, left: 20, bottom: 5}}>
-            <XAxis dataKey="region"/>
-            <YAxis/>
-            <CartesianGrid strokeDasharray="3 3"/>
-            <Tooltip/>
-            <Legend />
-            <Bar dataKey="win" stackid='a' fill="#8884d8" />
-            <Bar dataKey="loss" stackid='a' fill="#82ca9d" />
-          </BarChart>
-          <PieChart width={800} height={400}>
-            <Pie
-              data={this.state.pieData} 
-              dataKey='win' 
-              cx={300} 
-              cy={200} 
-              labelLine={false}
-              label={renderCustomizedLabel}
-              outerRadius={140} 
-              fill="#8884d8">
-              {this.state.pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
-            </Pie>
-          </PieChart></div>
-          : null}  
+        <Navigation />
+        <h2>Analytics</h2>
+        <Grid>
+          <Row>
+            <Col sm={6}>
+              <Loader loaded={this.state.loaded} color="#fff">
+                <BarChart width={600} height={300} data={this.state.finalData}
+                          margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                  <XAxis dataKey="region"/>
+                  <YAxis/>
+                  <CartesianGrid strokeDasharray="3 3"/>
+                  <Tooltip cursor={false}/>
+                  <Legend />
+                  <Bar dataKey="win" stackid='a' fill="#8884d8" />
+                  <Bar dataKey="loss" stackid='a' fill="#82ca9d" />
+                </BarChart>
+              </Loader>
+            </Col>
+            <Col sm={6}>
+              <Loader loaded={this.state.loaded} color="#fff">
+                <PieChart width={600} height={300}>
+                  <Pie
+                    data={this.state.pieData}
+                    dataKey='win'
+                    cx={300}
+                    cy={200}
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    outerRadius={140}
+                    fill="#8884d8">
+                    {this.state.pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
+                  </Pie>
+                </PieChart>
+              </Loader>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }
