@@ -148,7 +148,8 @@ class Dashboard extends Component {
       <div className="wrapper">
         <Particles params={particleConfig}/>
         <div className="intro">
-          <h1>Some Crazy Machine Learning Line Goes Here</h1>
+          <h1>Oracle.ai</h1>
+          <h1>An empirical way to handle sales</h1>
           <div className="intro-button">
             <a href="#" className="intro-btn" onClick={this.openModal}>Intro</a>
             <a onClick={()=>this.gotoDashboard()} className="demo-btn">Demo</a>
@@ -158,7 +159,7 @@ class Dashboard extends Component {
         <Modal className="video-modal" show={this.state.showModal} onHide={this.closeModal} tabindex="-1">
           <Modal.Header closeButton />
           <Modal.Body>
-            
+
             <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="y-MHOE7MpJg" suggestions={false} />
           </Modal.Body>
         </Modal>
