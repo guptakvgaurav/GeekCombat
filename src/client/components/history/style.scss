@@ -4,6 +4,7 @@
     background: $dashboard-color-primary;
     height: 100%;
     overflow-y: scroll;
+    padding-bottom: $padding-bottom-footer;
     .history-table {
       .table {
         background: #263141;

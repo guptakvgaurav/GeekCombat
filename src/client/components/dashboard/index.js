@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap'
-import GoToHome from '../../utils';
+import { Grid, Row, Col } from 'react-bootstrap'
 import { browserHistory} from 'react-router';
 import Navigation from '../navigation'
 
@@ -96,42 +95,39 @@ class Dashboard extends Component {
   render () {
     return (
       <div className="dashboard-wrapper">
-        <div className="navigation-btns">
-          <Navigation />
-          <GoToHome ></GoToHome>
-          <div>
-            <Button className="review-btn" onClick={() => this.goToReview()}>
-              Review Old Prediction
-            </Button>
-            <Button className="predict-btn" onClick={() => this.goToPrediction()}>
-              Predict
-            </Button>
-          </div>
-        </div>
+        <Navigation />
         <h2>Analytics</h2>
-        <BarChart width={600} height={300} data={finalData}
-            margin={{top: 20, right: 30, left: 20, bottom: 5}}>
-          <XAxis dataKey="region"/>
-          <YAxis/>
-          <CartesianGrid strokeDasharray="3 3"/>
-          <Tooltip/>
-          <Legend />
-          <Bar dataKey="win" stackid='a' fill="#8884d8" />
-          <Bar dataKey="loss" stackid='a' fill="#82ca9d" />
-        </BarChart>
-        <PieChart width={800} height={400}>
-          <Pie
-            data={pieData} 
-            dataKey='win' 
-            cx={300} 
-            cy={200} 
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={140} 
-            fill="#8884d8">
-            {pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
-          </Pie>
-        </PieChart>  
+        <Grid>
+          <Row>
+            <Col sm={6}>
+              <BarChart width={600} height={300} data={finalData}
+                        margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                <XAxis dataKey="region"/>
+                <YAxis/>
+                <CartesianGrid strokeDasharray="3 3"/>
+                <Tooltip/>
+                <Legend />
+                <Bar dataKey="win" stackid='a' fill="#8884d8" />
+                <Bar dataKey="loss" stackid='a' fill="#82ca9d" />
+              </BarChart>
+            </Col>
+            <Col sm={6}>
+              <PieChart width={600} height={300}>
+                <Pie
+                  data={pieData}
+                  dataKey='win'
+                  cx={300}
+                  cy={200}
+                  labelLine={false}
+                  label={renderCustomizedLabel}
+                  outerRadius={140}
+                  fill="#8884d8">
+                  {pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
+                </Pie>
+              </PieChart>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     )
   }

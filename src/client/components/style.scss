@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700');
 @import "./variables";
 
-.company_form {
-    margin-top: 30px;
-    margin-left: 90px;
-    margin-right: 90px;
-}
 .ui_header {
     text-align: right;
     margin-right: 85px;
@@ -143,6 +138,8 @@ body#main-wrapper{
 }
 #App {
   height: 100%;
+  background: $dashboard-color-primary;
+  overflow: auto;
 }
 *{
     box-sizing: border-box;

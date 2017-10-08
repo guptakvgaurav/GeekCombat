@@ -24,7 +24,7 @@ class Navigation extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">The Mechanix</a>
+              <a href="#">Oracle.AI</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
