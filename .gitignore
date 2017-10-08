@@ -5,3 +5,5 @@ vcs.xml
 yarn.lock
 *.log
 dist/
+.history
+.vscode

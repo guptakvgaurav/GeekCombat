@@ -8,7 +8,7 @@ import FontAwesome from 'react-fontawesome'
 import Navigation from '../navigation'
 import './style.scss'
 
-const baseUrl = 'https://sales-predictor.herokuapp.com/'
+const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
 
 class History extends Component {
   constructor(props) {
@@ -41,14 +41,15 @@ class History extends Component {
     })
   }
 
-  setStatus = (id, status) => {
+  setStatus = (id, status, predictedOutcome) => {
     console.log('api hit', status, id)
     const config = {
       method: 'put',
       url: `${baseUrl}v1/api/history`,
       data: {
         id: id,
-        usefull: Boolean(status)
+        usefull: Boolean(status),
+        predictedOutcome:  predictedOutcome
       },
       headers: {
         'Access-Control-Allow-Origin': '*',
@@ -100,8 +101,8 @@ class History extends Component {
                           <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
                           {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
                           <Table.Cell>
-                            <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1)} />
-                            <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0)} />
+                            <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)} />
+                            <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)} />
                           </Table.Cell>
                           {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
                         </Table.Row>

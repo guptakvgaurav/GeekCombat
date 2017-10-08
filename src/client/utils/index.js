@@ -29,7 +29,7 @@ export default GoToHome
 export const getData = (cb) =>{
   axios({
     method: 'get',
-    baseURL:'http://jsonplaceholder.typicode.com/posts/1',
+    baseURL: `${baseUrl}v1/api/history`,
     headers: {"Access-Control-Allow-Origin": "*",
               'Content-Type':'application/json',
               'Accept': 'application/json'

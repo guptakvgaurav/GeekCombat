@@ -42,10 +42,10 @@ class Score extends Component {
                 <h1>Prediction Results</h1>
                  <p>It's Lokks Like, there is</p>
                 <div className="csm-prediction-right-inner-col">                 
-                  <div className="csm-percentage-result">50{this.props.location.query.data}<span>%</span></div>
+                  <div className="csm-percentage-result">{parseFloat(Math.round(this.props.location.state.data.probablity * 100) / 100).toFixed(1)}<span>%</span></div>
                 </div>
                 <p>chances to carck this lead.</p><br/>
-                <a href="#" class="intro-btn">Dashboard</a>
+                <a href="#" className="intro-btn">Dashboard</a>
               </div>
             </div>
 			  	</div>
