@@ -1,16 +1,14 @@
 const path = require('path')
-const webpack = require('webpack')
 const extractTextPlugin = require('extract-text-webpack-plugin')
-require('babel-polyfill')
+const webpack = require('webpack')
 
 module.exports = {
-  entry: {bundle: ['./src/client/components/app.js', 'webpack-hot-middleware/client?path=http://localhost:7777/__webpack_hmr']},
+  entry: {bundle: ['./src/client/components/app.js', 'webpack-hot-middleware/client']},
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/dist'
   },
-  // devtool: 'source-map',
   module: {
     rules: [
       {

@@ -12,6 +12,9 @@ class Navigation extends Component {
   goToPrediction = (data) => {
     browserHistory.push({pathname: '/predict', query: {} })
   }
+  goToHome = () => {
+    browserHistory.push({pathname: '/' })
+  }
 
   render () {
     return (
@@ -24,7 +27,7 @@ class Navigation extends Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">Oracle.AI</a>
+              <a onClick={() => this.goToHome()}>Oracle.AI</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
