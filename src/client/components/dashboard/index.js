@@ -164,7 +164,7 @@ class Dashboard extends Component {
               </Loader>
             </Col>
             <Col sm={6}>
-              <Loader loaded={this.state.loaded}>
+              <Loader loaded={this.state.loaded} color="#fff">
                 <PieChart width={600} height={300}>
                   <Pie
                     data={this.state.pieData}
