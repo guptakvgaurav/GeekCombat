@@ -34,8 +34,16 @@ class History extends Component {
     axios(config)
     .then((response) => {
       console.log('response', response)
+
+      const sortedData = response.data.data.sort((a, b) =>{
+        if(new Date(a.createdAt) > new Date(b.createdAt) ){
+          return -1
+        }else{
+          return 1
+        }
+      })
       this.setState({
-        data: response.data.data,
+        data: sortedData,
         loaded: true
       })
     })
@@ -108,14 +116,10 @@ class History extends Component {
                               fa_like_icon_class = 'fa-icon-disabled';
                               fa_dislike_icon_class = 'fa-icon-disabled';
                               if(item.usefull == 'yes'){
-                                console.log("PPPPPPPP", item.usefull, item.name);
-
                                   fa_dislike_icon_class = fa_dislike_icon_class + ' fa-icon-hide';
                               }
                               if(item.usefull == 'no'){
-                                console.log("PPPPPPPP11", item.usefull, item.name);
-
-                                fa_like_icon_class = fa_dislike_icon_class + ' fa-icon-hide';
+                                fa_like_icon_class = fa_like_icon_class + ' fa-icon-hide';
                               }
                             }
                         return (
