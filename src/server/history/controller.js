@@ -59,16 +59,13 @@ export const updateHistory = (req, res) => {
     History.findOneAndUpdate({
         _id: req.body.id
     }, {
+        isReviewed: true,
         usefull: req.body.usefull,
         actualOutcome: req.body.usefull ? req.body.predictedOutcome : !req.body.predictedOutcome
     }, (err, doc) => {
         if (err) {
-            res.send({
-                err: err.message
-            })
+            return res.send({ err: err.message })
         }
-        res.status(200).json({
-            msg: 'success'
-        })
+        return res.status(200).json(doc)
     })
 }

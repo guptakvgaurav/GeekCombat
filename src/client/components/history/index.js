@@ -72,7 +72,6 @@ class History extends Component {
     return (
       <div className="history-wrapper">
         <Navigation />
-        <GoToHome></GoToHome>
         <Grid>
           <Row>
             <Col md={10} smOffset={1}>
@@ -84,8 +83,10 @@ class History extends Component {
                       <Table.HeaderCell>Industry</Table.HeaderCell>
                       <Table.HeaderCell>Point of contact</Table.HeaderCell>
                       <Table.HeaderCell>Size</Table.HeaderCell>
-                      <Table.HeaderCell>Region</Table.HeaderCell>
+                      <Table.HeaderCell>Regisssson</Table.HeaderCell>
                       <Table.HeaderCell>Date</Table.HeaderCell>
+                      <Table.HeaderCell>Probablity</Table.HeaderCell>
+
                       {/*<Table.HeaderCell>Successfull</Table.HeaderCell>*/}
                       <Table.HeaderCell>Was this helpfull ?</Table.HeaderCell>
                     </Table.Row>
@@ -101,6 +102,7 @@ class History extends Component {
                           <Table.Cell>{item.size}</Table.Cell>
                           <Table.Cell>{item.region}</Table.Cell>
                           <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
+                          <Table.Cell>{parseFloat(item.probablity * 100).toFixed(1)+' %'}</Table.Cell>
                           {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
                           <Table.Cell>
                             <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)} />
