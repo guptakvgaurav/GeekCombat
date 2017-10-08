@@ -13,6 +13,7 @@ const baseUrl = 'https://oracleai.herokuapp.com/'
 
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index,...others}) => {
+  const RADIAN = Math.PI / 180;
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x  = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy  + radius * Math.sin(-midAngle * RADIAN);
@@ -38,26 +39,27 @@ class Dashboard extends Component {
 
   createGrapqh = () => {
     const chartData = this.state.data
+    console.log('chart', chartData)
     const initialData = {}
 
     chartData.forEach((data,i) => {
-      const region = data.TTN_GEO
-      const size = data.Company_Size
+      const region = data.region
+      const size = data.size
       initialData[region] = { win: 0, loss: 0}
     })
 
     const initialPieData = {}
 
     chartData.forEach((data,i) => {
-      const size = data.Company_Size
+      const size = data.size
       initialPieData[size] = { win: 0}
     })
 
 
     chartData.forEach((data,i) => {
-      const region = data.TTN_GEO
-      if (Object.keys(initialData).indexOf(data.TTN_GEO) !== -1) {
-        if (data.actualOutcome === '0') {
+      const region = data.region
+      if (Object.keys(initialData).indexOf(data.region) !== -1) {
+        if (!data.actualOutcome) {
           initialData[region]['loss']++
         } else {
           initialData[region]['win']++
@@ -67,9 +69,9 @@ class Dashboard extends Component {
     })
 
     chartData.forEach((data,i) => {
-      const size = data.Company_Size
-      if (Object.keys(initialPieData).indexOf(data.Company_Size) !== -1) {
-        if (data.actualOutcome === '0') {
+      const size = data.size
+      if (Object.keys(initialPieData).indexOf(data.size) !== -1) {
+        if (!data.actualOutcome) {
           initialPieData[size]['loss']++
         } else {
           initialPieData[size]['win']++
@@ -103,7 +105,6 @@ class Dashboard extends Component {
       pieData: pieData
     })
 
-    const RADIAN = Math.PI / 180;                    
   }
 
   componentDidMount() {
