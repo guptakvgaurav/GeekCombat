@@ -76,7 +76,7 @@ class History extends Component {
         <Navigation />
         <Grid>
           <Row>
-            <Col md={10} smOffset={1}>
+            <Col md={12}>
               <div className='history-table'>
                 <Loader loaded={this.state.loaded} color="#fff">
                   <Table celled stackable>
