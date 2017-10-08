@@ -185,7 +185,7 @@ class Dashboard extends Component {
         <Grid>
           <Row>
             <Col sm={6}>
-              <BarChart width={600} height={300} data={finalData}
+              <BarChart width={600} height={300} data={this.state.finalData}
                         margin={{top: 20, right: 30, left: 20, bottom: 5}}>
                 <XAxis dataKey="region"/>
                 <YAxis/>
@@ -199,7 +199,7 @@ class Dashboard extends Component {
             <Col sm={6}>
               <PieChart width={600} height={300}>
                 <Pie
-                  data={pieData}
+                  data={this.state.pieData}
                   dataKey='win'
                   cx={300}
                   cy={200}
@@ -207,7 +207,7 @@ class Dashboard extends Component {
                   label={renderCustomizedLabel}
                   outerRadius={140}
                   fill="#8884d8">
-                  {pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
+                  {this.state.pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
                 </Pie>
               </PieChart>
             </Col>
