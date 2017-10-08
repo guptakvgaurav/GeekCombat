@@ -61,3 +61,12 @@
     }
   }
 }
+
+.fa-icon-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.fa-icon-hide {
+  opacity: 0;
+}
