@@ -62,6 +62,10 @@ class History extends Component {
     axios(config)
     .then((response) => {
       console.log('response', response)
+      let _datum = this.state.data.find(_datum => _datum._id == id );
+      _datum.status = status? 'yes': 'no';
+      _datum.isReviewed = true;
+      this.forceUpdate();
     })
     .catch((err) => {
       console.log('err in axios', err)
@@ -94,6 +98,18 @@ class History extends Component {
 
                   <Table.Body>
                     {this.state.data.map((item, index) => {
+                      let fa_like_icon = '';
+                      let fa_dislike_icon = '';
+                      if(item.isReviewed){
+                        fa_dislike_icon = 'fa-icon-disabled';
+                        fa_like_icon = 'fa-icon-disabled';
+                        if(item.status == 'yes'){
+                          fa_dislike_icon = fa_dislike_icon + ' fa-icon-hide';
+                        }
+                        if(item.status == 'no'){
+                          fa_like_icon = fa_like_icon + ' fa-icon-hide'
+                        }
+                      }
                       return (
                         <Table.Row key={index}>
                           <Table.Cell>{item.name}</Table.Cell>
@@ -105,8 +121,10 @@ class History extends Component {
                           <Table.Cell>{parseFloat(item.probablity * 100).toFixed(1)+' %'}</Table.Cell>
                           {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
                           <Table.Cell>
-                            <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)} />
-                            <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)} />
+                            <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)} 
+                              className={fa_like_icon}
+                            />
+                            <FontAwesome className={fa_like_icon} name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)} />
                           </Table.Cell>
                           {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
                         </Table.Row>
