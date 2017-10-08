@@ -86,7 +86,7 @@ class Predict extends Component {
     onRegionChanged = (e, d) => {
         console.log(d);
         this.setState({
-             region: d.value   
+             region: d.value
         })
 
     }
@@ -116,7 +116,7 @@ class Predict extends Component {
         let { name, size, region, isDecisionMaker, techStack, accountSource, industry } = this.state;
         return (
           <div className="predict-wrapper">
-              <Navigation />
+              <Navigation show='pred' />
               <h2>Predict Now</h2>
               <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}

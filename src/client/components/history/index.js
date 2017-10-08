@@ -73,7 +73,7 @@ class History extends Component {
   render () {
     return (
       <div className="history-wrapper">
-        <Navigation />
+        <Navigation show='his'/>
         <h2>Past Records</h2>
         <Grid>
           <Row>

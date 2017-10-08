@@ -5,18 +5,22 @@ import { Navbar, Nav, Grid, Button, Row } from 'react-bootstrap'
 import './style.scss'
 
 class Navigation extends Component {
+  constructor(props) {
+    super(props);
 
+  }
   goToReview = () => {
-    browserHistory.push({pathname: '/history', query: {} })
+    browserHistory.push({pathname: '/history' })
   }
   goToPrediction = (data) => {
-    browserHistory.push({pathname: '/predict', query: {} })
+    browserHistory.push({pathname: '/predict' })
   }
   goToHome = () => {
     browserHistory.push({pathname: '/' })
   }
 
   render () {
+    console.log("UUUUU", this);
     return (
       <div className="navigation">
         <Grid>
@@ -34,12 +38,12 @@ class Navigation extends Component {
           <Navbar.Collapse>
             <Nav pullRight>
               <div className="navigation-btns">
-                <Button className="review-btn" onClick={() => this.goToReview()}>
+                {(this.props.show !=='his' || this.props.show=='dash') &&<Button className="review-btn" onClick={() => this.goToReview()}>
                   Review Old Prediction
-                </Button>
-                <Button className="predict-btn" onClick={() => this.goToPrediction()}>
+                </Button>}
+                {(this.props.show !=='pred' || this.props.show=='dash') &&<Button className="predict-btn" onClick={() => this.goToPrediction()}>
                   Predict
-                </Button>
+                </Button>}
               </div>
             </Nav>
           </Navbar.Collapse>
