@@ -51,7 +51,7 @@ class History extends Component {
       url: `${baseUrl}v1/api/history`,
       data: {
         id: id,
-        usefull: Boolean(status),
+        usefull: status? 'yes': 'no',
         predictedOutcome:  predictedOutcome
       },
       headers: {
@@ -64,6 +64,10 @@ class History extends Component {
     axios(config)
     .then((response) => {
       console.log('response', response)
+      let _datum = this.state.data.find(_datum => _datum._id == id);
+      _datum.isReviewed = true;
+      _datum.usefull = status? 'yes': 'no'
+      this.forceUpdate();
     })
     .catch((err) => {
       console.log('err in axios', err)
@@ -98,6 +102,22 @@ class History extends Component {
 
                     <Table.Body>
                       {this.state.data.map((item, index) => {
+                            let fa_like_icon_class = '';
+                            let fa_dislike_icon_class = '';
+                            if(item.isReviewed){
+                              fa_like_icon_class = 'fa-icon-disabled';
+                              fa_dislike_icon_class = 'fa-icon-disabled';
+                              if(item.usefull == 'yes'){
+                                console.log("PPPPPPPP", item.usefull, item.name);
+
+                                  fa_dislike_icon_class = fa_dislike_icon_class + ' fa-icon-hide';
+                              }
+                              if(item.usefull == 'no'){
+                                console.log("PPPPPPPP11", item.usefull, item.name);
+
+                                fa_like_icon_class = fa_dislike_icon_class + ' fa-icon-hide';
+                              }
+                            }
                         return (
                           <Table.Row key={index}>
                             <Table.Cell>{item.name}</Table.Cell>
@@ -109,8 +129,10 @@ class History extends Component {
                             <Table.Cell>{parseFloat(item.probablity * 100).toFixed(1)+' %'}</Table.Cell>
                             {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
                             <Table.Cell>
-                              <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)} />
-                              <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)} />
+                              <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)}
+                                className={ fa_like_icon_class }/>
+                              <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)}
+                                className={ fa_dislike_icon_class }/>
                             </Table.Cell>
                             {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
                           </Table.Row>

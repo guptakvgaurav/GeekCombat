@@ -20,7 +20,6 @@ class Navigation extends Component {
   }
 
   render () {
-    console.log("UUUUU", this);
     return (
       <div className="navigation">
         <Grid>
