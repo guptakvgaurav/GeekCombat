@@ -170,9 +170,7 @@ class Predict extends Component {
                                     value={ this.state.isDecisionMaker }
                                     onChange = { (e, d) => this.onDecisionChanged(e, d)}/>
                       </Form.Group>
-                      <div className="center">
-                          <Form.Button onClick={() =>this.submitAccountDetail()}>Predict</Form.Button>
-                      </div>
+                      <Form.Button onClick={() =>this.submitAccountDetail()}>Predict</Form.Button>
                   </Form>
               </div>
           </div>
