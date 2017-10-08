@@ -91,16 +91,19 @@ body#main-wrapper{
     left: calc(50% - 300px);
     transform: translateY(-50%);
       h1 {
-        font-size: 50px;
         color: #ffffff;
         font-weight: bold;
         font-size: 77px;
+        text-shadow: #222 5px 5px 8px;
         text-transform: uppercase;
+        margin-bottom: 0px;
       }
       h2{
-        font-size: 32px;
+        font-size: 28px;
+        text-transform: uppercase;
         color: #ffffff;
-        font-weight: 200;  
+        font-weight: 200;
+        margin-top: 0;
       }
      .intro-button {
          margin-top: 70px;
