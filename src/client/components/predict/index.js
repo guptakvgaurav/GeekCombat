@@ -117,6 +117,7 @@ class Predict extends Component {
         return (
           <div className="predict-wrapper">
               <Navigation show='pred' />
+              <h2>Predict Now</h2>
               <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right"
@@ -128,9 +129,9 @@ class Predict extends Component {
                                       onChange={ (e, d) => this.onCompanyNameChanged(e, d)}
                                       placeholder='Company name'
                                       value={ name }/>
-                          <Link target="_blank"
+                          <Link className="search-linkedin" target="_blank"
                                 to={`https://in.linkedin.com/company/${this.state.name || "tothenew"}`}>
-                              Search On
+                              <FontAwesome name="search" />
                               <FontAwesome name="linkedin" />
                           </Link>
                       </Form.Group>

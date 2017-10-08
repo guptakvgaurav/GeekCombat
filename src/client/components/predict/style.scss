@@ -1,9 +1,13 @@
 @import "../variables";
 .predict-wrapper {
   padding-bottom: $padding-bottom-footer;
+  h2 {
+    color: #fff;
+    text-align: center;
+  }
   .company_form {
     max-width: 600px;
-    margin: 60px auto 0;
+    margin: 30px auto 0;
     padding: 50px 80px;
     background: #263141;
     border: 1px solid rgba(158, 156, 150, 0.1);
@@ -24,9 +28,22 @@
     }
     .field {
       padding-left: 0!important;
+      padding-right: 0!important;
     }
     .fields {
       position: relative;
+    }
+    .search-linkedin {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      display: inline-block;
+      .fa {
+        font-size: 18px;
+        &:first-child {
+          margin-right: 2px;
+        }
+      }
     }
   }
 }
