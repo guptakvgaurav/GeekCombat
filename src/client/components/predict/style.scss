@@ -24,6 +24,7 @@
     }
     .field {
       padding-left: 0!important;
+      padding-right: 0!important;
     }
     .fields {
       position: relative;
@@ -33,11 +34,10 @@
       right: 15px;
       top: 15px;
       display: inline-block;
-      background: #089bea;
       .fa {
         font-size: 18px;
         &:first-child {
-          margin-right: 10px;
+          margin-right: 2px;
         }
       }
     }
