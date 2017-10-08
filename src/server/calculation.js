@@ -75,7 +75,7 @@ export const calculation = (decisionMaker, companySize, geo, accountSource, indu
 
     var sum = d_m_result + c_s_result + geo_result + a_s_result + i_result;
     console.log(sum)
-    return ((sum + 1)/2);
+    return (1/(1+Math.pow(Math.E, -1*sum)))
 };
 
 console.log(calculation(1, 'Company_Size_L', 'TTN_GEO_ANZ', 'AccountSource._InterCompany', 'Industry_Automobile'))
