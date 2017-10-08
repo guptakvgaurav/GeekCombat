@@ -98,20 +98,27 @@ body#main-wrapper{
       text-shadow: none;
   }
   .intro {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-      position: fixed;
-      top: 48%;
-      left: calc(50% - 300px);
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: calc(50% - 300px);
+    transform: translateY(-50%);
       h1 {
-          font-size: 32px;
-          color: #ffffff;
-          font-weight: 200;
-          text-transform: uppercase;
+        font-size: 50px;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 77px;
+        text-transform: uppercase;
+      }
+      h2{
+        font-size: 32px;
+        color: #ffffff;
+        font-weight: 200;  
       }
      .intro-button {
-         margin-top: 100px;
+         margin-top: 70px;
          a {
            background-color: transparent;
            border: 1px solid rgba(255, 255, 255, 0.3);
@@ -371,6 +378,15 @@ body#main-wrapper{
   width: 100%;
   height: 100%;
 }
+.modal-content h1 {
+    color: #ffffff;
+    font-weight: 200;
+    text-transform: uppercase;
+    position: absolute;
+    top: -33px;
+}
+
+
 @media only screen and (max-width: 767px) {
     .csm-predivtion-results{
         padding: 20px;
