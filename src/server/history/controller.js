@@ -1,7 +1,17 @@
 import History from './model'
 
 export const getHistory = (req, res) => {
-	History.find({addedViaPortal: true}).lean().exec()
+	console.log('req.query',typeof req.query.addedViaPortal)
+	let condition = {
+		addedViaPortal: true
+	}
+	if (req.query.addedViaPortal === 'false') {
+		condition = {
+			addedViaPortal: false
+		}
+	} 
+	console.log('condtion', condition)
+	History.find(condition).lean().exec()
 	.then((history) => {
     	res.status(200).json({
     		msg: 'success',
