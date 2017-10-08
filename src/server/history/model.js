@@ -10,10 +10,12 @@ const HistorySchema = new Schema({
 	region: { 
 		type: String
 	},
+	accountSource: { type: String },
 	successfull: { type: Boolean },
 	usefull: { type: Boolean },
 
-	addedViaPortal: {type: Boolean},
+	isDecisionMaker: { type: Boolean },
+	addedViaPortal: { type: Boolean, default: true},
 	actualOutcome: { type: Boolean },
 	predictedOutcome: { type: Boolean}
 }, { timestamps: true })

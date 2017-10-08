@@ -61,9 +61,9 @@ app.get('/v1/seed_processed_csv', (req, res, next) => {
       name: '',
       industry: data.Industry,
       size: data.Company_Size,
-      pointOfContact: data.Decision_Maker,
+      isDecisionMaker: data.Decision_Maker == 1? true: false,
       region: data.TTN_GEO,
-      addedViaPortal: true,
+      addedViaPortal: false,
       actualOutcome: data.Qualified
     }
     const history = new History(formattedData);
