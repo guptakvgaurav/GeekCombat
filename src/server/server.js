@@ -29,10 +29,13 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 const compiler = webpack(webpackConfig)
-app.use(webpackDevMiddleware(compiler, {
-    noInfo: true, publicPath: webpackConfig.output.publicPath
-}))
-app.use(webpackHotMiddleware(compiler))
+if (process.env.NODE_ENV !== 'production') {
+		app.use(webpackDevMiddleware(compiler, {
+    	noInfo: true, publicPath: webpackConfig.output.publicPath
+	}))
+	app.use(webpackHotMiddleware(compiler))	
+}
+
 
 app.use(morgan('dev'))
 app.use('/v1/api/dashboard',dashboard)

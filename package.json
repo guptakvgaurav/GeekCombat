@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && babel-node ./src/server/server",
+    "start": "babel-node ./src/server/server",
     "build": "NODE_ENV=production && webpack --config webpack.prod.config.js",
     "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
@@ -35,9 +35,8 @@
     "node-sass": "^4.5.3",
     "react": "15.3.2",
     "react-bootstrap": "^0.30.10",
-    "react-dom": "^15.6.1",
+    "react-dom": "15.3.2",
     "react-particles-js": "^2.0.0",
-    "react-redux": "^5.0.6",
     "react-router": "^3.0.0",
     "react-router-dom": "^4.2.2",
     "recharts": "^1.0.0-apha.5",
