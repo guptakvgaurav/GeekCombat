@@ -25,9 +25,7 @@ class Score extends Component {
             <div className="csm-background-graphs-06 csm-background-graphs-img">
               <img src="../../img/06.png"/>
             </div>
-            <div className="csm-background-graphs-07 csm-background-graphs-img">
-              <img src="../../img/07.gif"/>
-            </div>
+
             <div className="csm-background-graphs-08 csm-background-graphs-img">
               <img src="../../img/08.jpg"/>
             </div>
@@ -41,11 +39,11 @@ class Score extends Component {
             <div className="csm-prediction-right-col">
               <div className="csm-prediction-right-inner-wrapper">
                 <h1>Prediction Results</h1>
-                 <p>It's Lokks Like, there is</p>
+                 <p>It's Looks Like, there is</p>
                 <div className="csm-prediction-right-inner-col">                 
                   <div className="csm-percentage-result">{parseFloat(this.props.location.state.data.probablity * 100).toFixed(1)}<span>%</span></div>
                 </div>
-                <p>chances to carck this lead.</p><br/>
+                <p>chances to crack this lead.</p><br/>
                 <Link  className="intro-btn"
                         to="/dashboard">
                   Dashboard
