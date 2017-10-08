@@ -7,6 +7,9 @@
   padding-bottom: $padding-bottom-footer;
   h2 {
     color: #fff;
-    text-align: center  ;
+    text-align: center;
+    &.container {
+      margin-top: 30px;
+    }
   }
 }
