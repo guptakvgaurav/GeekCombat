@@ -1,6 +1,6 @@
 import React, { Component }from 'react'
 import { browserHistory } from 'react-router';
-import { Navbar, Nav, NavItem, Button } from 'react-bootstrap'
+import { Navbar, Nav, Grid, Button, Row } from 'react-bootstrap'
 
 import './style.scss'
 
@@ -16,6 +16,11 @@ class Navigation extends Component {
   render () {
     return (
       <div className="navigation">
+        <Grid>
+          <h3 className="welcome-message text-right">
+            Welcome Guest!
+          </h3>
+        </Grid>
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>

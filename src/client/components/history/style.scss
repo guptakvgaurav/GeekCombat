@@ -8,6 +8,8 @@
       .table {
         background: #263141;
         text-align: center;
+        border-radius: 0;
+        margin-top: 60px;
         thead {
           background: #303d4d;
           border-top: 1px solid;
@@ -40,8 +42,9 @@
             margin-right: 10px;
             cursor: pointer;
             transition:  0.4s ease;
+            opacity: .7;
             &:hover {
-              transform: rotateZ(360deg);
+              opacity: 1;
             }
           }
         }

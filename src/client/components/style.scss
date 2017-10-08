@@ -86,17 +86,7 @@ body#main-wrapper{
       }
     }
   }
-  /*********** Selection Styling *****************/
-  ::-moz-selection {
-      color: #fff;
-      background: #000;
-      text-shadow: none;
-  }
-  ::selection {
-      color: #fff;
-      background: #000;
-      text-shadow: none;
-  }
+
   .intro {
       max-width: 600px;
       margin: 0 auto;
@@ -248,7 +238,7 @@ body#main-wrapper{
   p{
     margin: 0;
   }
- 
+
   &:after {
       content: '';
       width: 100%;
