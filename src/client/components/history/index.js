@@ -5,7 +5,6 @@ import axios from 'axios'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
 
-import GoToHome from '../../utils/'
 import Navigation from '../navigation'
 import './style.scss'
 
