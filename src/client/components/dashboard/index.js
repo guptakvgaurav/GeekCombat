@@ -9,7 +9,7 @@ import Navigation from '../navigation'
 import './style.scss'
 
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Sector, Cell} from 'recharts'
-const baseUrl = 'http://localhost:7777/' || 'https://sales-predictor.herokuapp.com/'
+const baseUrl = 'https://oracleai.herokuapp.com/'
 
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index,...others}) => {

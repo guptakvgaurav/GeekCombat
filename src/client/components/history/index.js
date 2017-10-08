@@ -9,7 +9,7 @@ import GoToHome from '../../utils/'
 import Navigation from '../navigation'
 import './style.scss'
 
-const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
+const baseUrl = 'https://oracleai.herokuapp.com/'
 
 class History extends Component {
   constructor(props) {
