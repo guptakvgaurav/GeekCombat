@@ -18,7 +18,7 @@ export const getHistory = (req, res) => {
 
 export const createHistory = (req, res) => {
 	console.log('here', req.body)
-	const history = new History(req.body)
+	const history = new History()
 
 	history.save((err) => {
 		if (err) {
