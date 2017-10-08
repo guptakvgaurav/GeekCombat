@@ -5,12 +5,16 @@
     height: 100%;
     overflow-y: scroll;
     padding-bottom: $padding-bottom-footer;
+    h2 {
+      color: #fff;
+      text-align: center;
+    }
     .history-table {
       .table {
         background: #263141;
         text-align: center;
         border-radius: 0;
-        margin-top: 60px;
+        margin-top: 30px;
         thead {
           background: #303d4d;
           border-top: 1px solid;

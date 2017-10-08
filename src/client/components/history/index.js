@@ -78,6 +78,7 @@ class History extends Component {
     return (
       <div className="history-wrapper">
         <Navigation />
+        <h2>Past Records</h2>
         <Grid>
           <Row>
             <Col md={12}>

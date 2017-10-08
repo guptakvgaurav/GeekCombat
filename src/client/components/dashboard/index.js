@@ -146,7 +146,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard-wrapper">
         <Navigation />
-        <h2>Analytics</h2>
+        <h2>Your Recent Analytics</h2>
         <Grid>
           <Row>
             <Col sm={6}>
@@ -165,7 +165,7 @@ class Dashboard extends Component {
             </Col>
             <Col sm={6}>
               <Loader loaded={this.state.loaded} color="#fff">
-                <PieChart width={600} height={300}>
+                <PieChart width={600} height={400}>
                   <Pie
                     data={this.state.pieData}
                     dataKey='win'

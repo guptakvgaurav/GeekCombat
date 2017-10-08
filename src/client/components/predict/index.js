@@ -117,6 +117,7 @@ class Predict extends Component {
         return (
           <div className="predict-wrapper">
               <Navigation />
+              <h2>Predict Now</h2>
               <ToastContainer ref={(input) => {this.container = input;}}
                         toastMessageFactory={ToastMessageFactory}
                         className="toast-top-right"
