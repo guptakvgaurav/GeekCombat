@@ -103,8 +103,6 @@ class Dashboard extends Component {
       pieData: pieData
     })
 
-    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
-
     const RADIAN = Math.PI / 180;                    
   }
 
@@ -123,7 +121,7 @@ class Dashboard extends Component {
     .then((response) => {
       console.log('response', response)
       this.setState({
-        data: response.data
+        data: response.data.data
       }, () => this.createGrapqh())
     })
     .catch((err) => {
@@ -138,6 +136,7 @@ class Dashboard extends Component {
     browserHistory.push({pathname: '/predict', query: {} })
   }
   render () {
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
     return (
       <div className="dashboard-wrapper">
         <div className="navigation-btns">
