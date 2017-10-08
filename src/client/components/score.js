@@ -1,7 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import GoToHome from './../utils/'
-import {Label} from 'semantic-ui-react'
-
 
 class Score extends Component {
   render () {
@@ -48,7 +45,7 @@ class Score extends Component {
                   <div className="csm-percentage-result">50{this.props.location.query.data}<span>%</span></div>
                 </div>
                 <p>chances to carck this lead.</p><br/>
-                <a href="#" class="intro-btn">Dashboard</a>
+                <a href="#" className="intro-btn">Dashboard</a>
               </div>
             </div>
 			  	</div>

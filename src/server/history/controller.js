@@ -1,7 +1,7 @@
 import History from './model'
 
 export const getHistory = (req, res) => {
-	History.find({}).lean().exec()
+	History.find({addedViaPortal: true}).lean().exec()
 	.then((history) => {
     	res.status(200).json({
     		msg: 'success',
@@ -18,7 +18,7 @@ export const getHistory = (req, res) => {
 
 export const createHistory = (req, res) => {
 	console.log('here', req.body)
-	const history = new History(req.body)
+	const history = new History()
 
 	history.save((err) => {
 		if (err) {
@@ -38,7 +38,8 @@ export const updateHistory = (req, res) => {
 	History.findOneAndUpdate({
 		_id: req.body.id
 	}, {
-		usefull: req.body.usefull
+		usefull: req.body.usefull,
+		actualOutcome: req.body.usefull ? req.body.predictedOutcome: !req.body.predictedOutcome
 	}, (err, doc) => {
 		if (err) {
 			res.send({

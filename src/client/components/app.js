@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 
-import Home from './home.js'
-import Dashboard from './dashboard.js'
-import Predict from './predict.js'
+import Home from './home'
+import Dashboard from './dashboard'
+import Predict from './predict'
 import Score from './score.js'
-import History from './history.js'
+import History from './history'
 
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
 

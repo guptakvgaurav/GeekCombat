@@ -8,7 +8,7 @@ export const companySize = [
 
 ]
 
-export const techStack = [
+export const techStacks = [
     {key: 'MEAN', value: 'MEAN', text: 'Mean'},
     {key: 'FEEN', value: 'FEEN', text: 'Feen'},
     {key: 'JVM', value: 'JVM', text: 'Java'},
@@ -35,7 +35,7 @@ export const regions = [
 
 ]
 
-export const industry = [
+export const industries = [
     {key: 'Industry_Automobile', value: 'Industry_Automobile', text: 'Automobile'},
     {key: 'Industry_Aviation', value: 'Industry_Aviation', text: 'Aviation'},
     {key: 'Industry_BFSI', value: 'Industry_BFSI', text: 'BFSI'},
@@ -53,6 +53,15 @@ export const industry = [
     {key: 'Industry_Others', value: 'Industry_Others', text: 'Others'},
 
 ]
+
+export const accountSources = [
+    {key: 'AccountSource._InterCompany', value: 'AccountSource._InterCompany', text: 'Inter Company'},
+    {key: 'AccountSource._OLG', value: 'AccountSource._OLG', text: 'OLG'},
+    {key: 'AccountSource._References', value: 'AccountSource._References', text: 'References'},
+    {key: 'AccountSource._SEM', value: 'AccountSource._SEM', text: 'SEM'},
+    {key: 'AccountSource._Website', value: 'AccountSource._Website', text: 'Website'} 
+]
+
 
 
 

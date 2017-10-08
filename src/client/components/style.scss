@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700');
-
-//variables
-$font-base: arial;
-$link-color: #171717;
-$link-hover-color: #171717;
-$wrapper-width: 980px;
+@import "./variables";
 
 .company_form {
     margin-top: 30px;
@@ -135,7 +130,7 @@ body#main-wrapper{
              background: #fff;
              color: #000;
            }
-             &.skip-btn {
+             &.demo-btn {
                  margin-left: 30px;
              }
          }
@@ -376,3 +371,4 @@ body#main-wrapper{
   width: 100%;
   height: 100%;
 }
+

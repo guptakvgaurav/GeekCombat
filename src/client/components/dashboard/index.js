@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap'
-import GoToHome from './../utils/';
+import GoToHome from '../../utils';
 import { browserHistory} from 'react-router';
-import './dashboard.scss'
+import Navigation from '../navigation'
+
+// import './dashboard.scss'
+import './style.scss'
 
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Sector, Cell} from 'recharts'
-var chartData = require('../processed.csv');
+var chartData = require('../../processed.csv');
 
 const initialData = {}
 
@@ -94,6 +97,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard-wrapper">
         <div className="navigation-btns">
+          <Navigation />
           <GoToHome ></GoToHome>
           <div>
             <Button className="review-btn" onClick={() => this.goToReview()}>
@@ -133,3 +137,21 @@ class Dashboard extends Component {
   }
 }
 export default Dashboard
+
+/*import React, { Component } from 'react';
+import GoToHome from '../../utils/';
+import Navigation from '../navigation'
+import './style.scss'
+
+class Predict extends Component {
+  render () {
+    return (
+      <div className="dashboard-wrapper">
+        <Navigation />
+          <GoToHome ></GoToHome>
+        <h2>Analytics</h2>
+      </div>
+    )
+  }
+}
+export default Predict*/
