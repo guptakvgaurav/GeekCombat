@@ -3,6 +3,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import { browserHistory} from 'react-router';
 import { Button } from 'react-bootstrap'
 import axios from 'axios'
+import Loader from 'react-loader'
 
 import GoToHome from '../../utils';
 import Navigation from '../navigation'
@@ -35,7 +36,8 @@ class Dashboard extends Component {
     this.state = {
       data: [],
       pieData: [],
-      finalData: []
+      finalData: [],
+      loaded: false
     }
   }
 
@@ -104,7 +106,8 @@ class Dashboard extends Component {
     console.log('pieData', pieData)
     this.setState({
       finalData: finalData,
-      pieData: pieData
+      pieData: pieData,
+      loaded: true
     })
 
   }
@@ -147,31 +150,35 @@ class Dashboard extends Component {
         <Grid>
           <Row>
             <Col sm={6}>
-              <BarChart width={600} height={300} data={this.state.finalData}
-                        margin={{top: 20, right: 30, left: 20, bottom: 5}}>
-                <XAxis dataKey="region"/>
-                <YAxis/>
-                <CartesianGrid strokeDasharray="3 3"/>
-                <Tooltip/>
-                <Legend />
-                <Bar dataKey="win" stackid='a' fill="#8884d8" />
-                <Bar dataKey="loss" stackid='a' fill="#82ca9d" />
-              </BarChart>
+              <Loader loaded={this.state.loaded} color="#fff">
+                <BarChart width={600} height={300} data={this.state.finalData}
+                          margin={{top: 20, right: 30, left: 20, bottom: 5}}>
+                  <XAxis dataKey="region"/>
+                  <YAxis/>
+                  <CartesianGrid strokeDasharray="3 3"/>
+                  <Tooltip cursor={false}/>
+                  <Legend />
+                  <Bar dataKey="win" stackid='a' fill="#8884d8" />
+                  <Bar dataKey="loss" stackid='a' fill="#82ca9d" />
+                </BarChart>
+              </Loader>
             </Col>
             <Col sm={6}>
-              <PieChart width={600} height={400}>
-                <Pie
-                  data={this.state.pieData}
-                  dataKey='win'
-                  cx={300}
-                  cy={200}
-                  labelLine={false}
-                  label={renderCustomizedLabel}
-                  outerRadius={140}
-                  fill="#8884d8">
-                  {this.state.pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
-                </Pie>
-              </PieChart>
+              <Loader loaded={this.state.loaded} color="#fff">
+                <PieChart width={600} height={400}>
+                  <Pie
+                    data={this.state.pieData}
+                    dataKey='win'
+                    cx={300}
+                    cy={200}
+                    labelLine={false}
+                    label={renderCustomizedLabel}
+                    outerRadius={140}
+                    fill="#8884d8">
+                    {this.state.pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
+                  </Pie>
+                </PieChart>
+              </Loader>
             </Col>
           </Row>
         </Grid>
