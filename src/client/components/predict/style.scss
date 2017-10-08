@@ -28,5 +28,18 @@
     .fields {
       position: relative;
     }
+    .search-linkedin {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+      display: inline-block;
+      background: #089bea;
+      .fa {
+        font-size: 18px;
+        &:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
   }
 }

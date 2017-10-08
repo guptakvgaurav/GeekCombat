@@ -73,7 +73,7 @@ class History extends Component {
         <Navigation />
         <Grid>
           <Row>
-            <Col md={10} smOffset={1}>
+            <Col md={12}>
               <div className='history-table'>
                 <Table celled stackable>
                   <Table.Header>
