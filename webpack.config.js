@@ -4,11 +4,11 @@ const extractTextPlugin = require('extract-text-webpack-plugin')
 require('babel-polyfill')
 
 module.exports = {
-  entry: {bundle: ['./src/client/components/app.js', 'webpack-hot-middleware/client']},
+  entry: {bundle: ['./src/client/components/app.js', 'webpack-hot-middleware/client?path=http://localhost:7777/__webpack_hmr']},
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '/dist'
+    publicPath: '/'
   },
   // devtool: 'source-map',
   module: {
