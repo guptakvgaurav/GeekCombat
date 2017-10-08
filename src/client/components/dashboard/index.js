@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'react-bootstrap'
+import axios from 'axios'
 import GoToHome from '../../utils';
 import { browserHistory} from 'react-router';
 import Navigation from '../navigation'
@@ -85,8 +86,39 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
     </text>
   );
 }
+const baseUrl = 'https://sales-predictor.herokuapp.com/'
 
 class Dashboard extends Component {
+   constructor(props) {
+    super(props)
+    this.state = {
+      data: []
+    }
+  }
+
+  componentDidMount() {
+    const config = {
+      method: 'get',
+      url: `${baseUrl}v1/api/history`,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type':'application/json',
+        'Accept': 'application/json'
+      }
+    }
+
+    axios(config)
+    .then((response) => {
+      console.log('response', response)
+      this.setState({
+        data: response.data.data
+      })
+    })
+    .catch((err) => {
+      console.log('err in axios', err)
+    })
+  }
+
   goToReview = () => {
     browserHistory.push({pathname: '/history', query: {} })
   }
