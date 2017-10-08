@@ -70,7 +70,7 @@ class History extends Component {
   render () {
     return (
       <div className="history-wrapper">
-        <Navigation />
+        <Navigation show='his'/>
         <Grid>
           <Row>
             <Col md={10} smOffset={1}>

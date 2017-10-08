@@ -19,9 +19,9 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x  = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy  + radius * Math.sin(-midAngle * RADIAN);
- 
+
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}  
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}
     dominantBaseline="central">
       {`${others.payload.size}`}
     </text>
@@ -142,7 +142,7 @@ class Dashboard extends Component {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
     return (
       <div className="dashboard-wrapper">
-        <Navigation />
+        <Navigation show='dash'/>
         <h2>Analytics</h2>
         <Grid>
           <Row>
