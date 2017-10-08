@@ -149,13 +149,14 @@ class Dashboard extends Component {
         <Particles params={particleConfig}/>
         <div className="intro">
           <h1>Oracle.ai</h1>
-          <h1>An empirical way to handle sales</h1>
+          <h2>An empirical way to handle sales</h2>
           <div className="intro-button">
             <a href="#" className="intro-btn" onClick={this.openModal}>Intro</a>
             <a onClick={()=>this.gotoDashboard()} className="demo-btn">Demo</a>
           </div>
         </div>
         <Modal className="video-modal" show={this.state.showModal} onHide={this.closeModal} tabindex="-1">
+          <h1>Oracle.ai</h1>
           <Modal.Header closeButton />
           <Modal.Body>
 
