@@ -10,6 +10,7 @@ module.exports = {
     filename: '[name].js',
     publicPath: '/dist'
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -39,6 +40,14 @@ module.exports = {
         ],
         fallback: "style-loader",
       })},
+      {
+        test: /\.csv$/,
+        use: [
+          {
+            loader: 'dsv-loader'
+          }
+        ]
+      }
     ]
   },
   plugins: [
