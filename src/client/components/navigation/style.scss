@@ -4,7 +4,7 @@
   .navigation {
     padding-top: 50px;
     h3 {
-      color: #089bea;
+      color: #ffffff;
       font-weight: 300;
       margin-bottom: 10px;
       font-size: 18px;
@@ -17,9 +17,11 @@
       padding: 10px 0 2px;
       border-radius: 0;
       .navbar-brand {
-        color: #fff!important;
-        font-weight: 100;
+        color: #fff !important;
+        /* font-weight: 100; */
         padding-top: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
       }
       .navigation-btns {
         & > div {
