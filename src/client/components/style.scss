@@ -2,11 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300i,700');
 @import "./variables";
 
-.company_form {
-    margin-top: 30px;
-    margin-left: 90px;
-    margin-right: 90px;
-}
 .ui_header {
     text-align: right;
     margin-right: 85px;
@@ -86,17 +81,7 @@ body#main-wrapper{
       }
     }
   }
-  /*********** Selection Styling *****************/
-  ::-moz-selection {
-      color: #fff;
-      background: #000;
-      text-shadow: none;
-  }
-  ::selection {
-      color: #fff;
-      background: #000;
-      text-shadow: none;
-  }
+
   .intro {
       max-width: 600px;
       margin: 0 auto;
@@ -153,6 +138,8 @@ body#main-wrapper{
 }
 #App {
   height: 100%;
+  background: $dashboard-color-primary;
+  overflow: auto;
 }
 *{
     box-sizing: border-box;
@@ -248,7 +235,7 @@ body#main-wrapper{
   p{
     margin: 0;
   }
- 
+
   &:after {
       content: '';
       width: 100%;

@@ -155,12 +155,11 @@ class Dashboard extends Component {
             <a onClick={()=>this.gotoDashboard()} className="demo-btn">Demo</a>
           </div>
         </div>
-
         <Modal className="video-modal" show={this.state.showModal} onHide={this.closeModal} tabindex="-1">
           <Modal.Header closeButton />
           <Modal.Body>
 
-            <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="y-MHOE7MpJg" suggestions={false} />
+            <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="g1OCdFJXtbg" suggestions={false} />
           </Modal.Body>
         </Modal>
       </div>

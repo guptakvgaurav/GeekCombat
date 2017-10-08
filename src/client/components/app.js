@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import Home from './home'
 import Dashboard from './dashboard'
 import Predict from './predict'
-import Score from './score.js'
+import Score from './score'
 import History from './history'
 
 import { Router, Route, Link, browserHistory, IndexRoute  } from 'react-router'
