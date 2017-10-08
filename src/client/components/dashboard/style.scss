@@ -8,7 +8,7 @@
   h2 {
     color: #fff;
     text-align: center;
-    &.container {
+    & + .container {
       margin-top: 30px;
     }
   }
