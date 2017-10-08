@@ -3,6 +3,8 @@
 .dashboard-wrapper {
   background: $dashboard-color-primary;
   height: 100%;
+  overflow-y: scroll;
+  padding-bottom: $padding-bottom-footer;
   h2 {
     color: #fff;
     text-align: center  ;

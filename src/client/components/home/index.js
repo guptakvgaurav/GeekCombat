@@ -159,7 +159,7 @@ class Dashboard extends Component {
           <Modal.Header closeButton />
           <Modal.Body>
 
-            <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="y-MHOE7MpJg" suggestions={false} />
+            <YoutubeEmbedVideo width="800" height="450" autoplay={true} videoId="g1OCdFJXtbg" suggestions={false} />
           </Modal.Body>
         </Modal>
       </div>

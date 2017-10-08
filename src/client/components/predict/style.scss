@@ -1,0 +1,32 @@
+@import "../variables";
+.predict-wrapper {
+  padding-bottom: $padding-bottom-footer;
+  .company_form {
+    max-width: 600px;
+    margin: 60px auto 0;
+    padding: 50px 80px;
+    background: #263141;
+    border: 1px solid rgba(158, 156, 150, 0.1);
+    input {
+      height: 50px;
+      border-radius: 0!important;
+    }
+    .dropdown {
+      width: 100%;
+      border-radius: 0!important;
+      height: 50px;
+      line-height: 50px!important;
+      padding-top: 0!important;
+      padding-bottom: 0!important;
+    }
+    label {
+      color: #fff!important;
+    }
+    .field {
+      padding-left: 0!important;
+    }
+    .fields {
+      position: relative;
+    }
+  }
+}
