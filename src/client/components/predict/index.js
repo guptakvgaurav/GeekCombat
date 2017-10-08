@@ -4,7 +4,7 @@ import GoToHome, {getData} from '../../utils/'
 import {browserHistory, Link} from 'react-router'
 import {companySize, regions, companySource,industries, techStacks, accountSources} from '../../seed'
 import axios from 'axios'
-const baseUrl = 'https://sales-predictor.herokuapp.com/'
+const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
 import './predictform.scss'
 
 class Predict extends Component {
@@ -42,7 +42,7 @@ class Predict extends Component {
     // }
 
     gotoScore = (data) => {
-        browserHistory.push({pathname: '/score', query: {"data": data.data.userId}})
+        browserHistory.push({pathname: '/score', state: data})
     }
 
     onCompanyNameChanged = (e, {value, name}) => {
