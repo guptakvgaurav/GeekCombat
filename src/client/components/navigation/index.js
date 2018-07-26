@@ -31,7 +31,7 @@ class Navigation extends Component {
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
-          <Navbar.Collapse>
+          <div>
             <Nav pullRight>
               <div className="navigation-btns">
                 <Button className="review-btn" onClick={() => this.goToReview()}>
@@ -42,7 +42,7 @@ class Navigation extends Component {
                 </Button>
               </div>
             </Nav>
-          </Navbar.Collapse>
+          </div>
         </Navbar>
       </div>
     )

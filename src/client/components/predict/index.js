@@ -4,12 +4,13 @@ import {browserHistory, Link} from 'react-router'
 import {companySize, regions, companySource,industries, techStacks, accountSources} from '../../seed'
 import axios from 'axios'
 import FontAwesome from 'react-fontawesome'
+import { baseUrl } from '../config';
 
 import Navigation from '../navigation'
 var ReactToastr = require("react-toastr");
 var {ToastContainer} = ReactToastr;
 var ToastMessageFactory = React.createFactory(ReactToastr.ToastMessage.animation);
-const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
+// const baseUrl = 'http://localhost:7777/'//'https://sales-predictor.herokuapp.com/'
 
 import './style.scss'
 

@@ -5,11 +5,13 @@ import axios from 'axios'
 import moment from 'moment'
 import FontAwesome from 'react-fontawesome'
 import Loader from 'react-loader'
+import { baseUrl } from '../config';
 
 import Navigation from '../navigation'
 import './style.scss'
 
-const baseUrl = 'https://oracleai.herokuapp.com/'
+// const baseUrl = 'https://oracleai.herokuapp.com/'
+// const baseUrl = 'http://127.0.0.1:7777/'
 
 class History extends Component {
   constructor(props) {
@@ -106,10 +108,10 @@ class History extends Component {
                       if(item.isReviewed){
                         fa_dislike_icon = 'fa-icon-disabled';
                         fa_like_icon = 'fa-icon-disabled';
-                        if(item.status == 'yes'){
+                        if(item.status == 'yes' || item.status){
                           fa_dislike_icon = fa_dislike_icon + ' fa-icon-hide';
                         }
-                        if(item.status == 'no'){
+                        if(item.status == 'no' || item.status == false){
                           fa_like_icon = fa_like_icon + ' fa-icon-hide'
                         }
                       }

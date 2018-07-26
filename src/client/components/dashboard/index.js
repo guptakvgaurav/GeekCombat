@@ -4,7 +4,7 @@ import { browserHistory} from 'react-router';
 import { Button } from 'react-bootstrap'
 import axios from 'axios'
 import Loader from 'react-loader'
-
+import { baseUrl } from '../config';
 import GoToHome from '../../utils';
 import Navigation from '../navigation'
 
@@ -12,7 +12,8 @@ import Navigation from '../navigation'
 import './style.scss'
 
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Sector, Cell} from 'recharts'
-const baseUrl = 'https://oracleai.herokuapp.com/'
+// const baseUrl = 'https://oracleai.herokuapp.com/'
+// const baseUrl = 'http://127.0.0.1:7777/'
 
 
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index,...others}) => {

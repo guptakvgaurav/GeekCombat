@@ -16,7 +16,8 @@ import History from './history/model'
 
 var cors = require('cors')
 
-const MONGO_URI = 'mongodb://heroku_fg05wnl1:l131o1po2quvck1qvno8kfedaj@ds113915.mlab.com:13915/heroku_fg05wnl1'
+// const MONGO_URI = 'mongodb://heroku_fg05wnl1:l131o1po2quvck1qvno8kfedaj@ds113915.mlab.com:13915/heroku_fg05wnl1'
+const MONGO_URI = 'mongodb://127.0.0.1:27017'
 
 mongoose.Promise = global.Promise
 mongoose.connect(MONGO_URI, { useMongoClient: true })
