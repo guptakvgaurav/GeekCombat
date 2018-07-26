@@ -21,9 +21,9 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const x  = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy  + radius * Math.sin(-midAngle * RADIAN);
- 
+
   return (
-    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}  
+    <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'}
     dominantBaseline="central">
       {`${others.payload.size}`}
     </text>
@@ -146,7 +146,7 @@ class Dashboard extends Component {
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
     return (
       <div className="dashboard-wrapper">
-        <Navigation />
+        <Navigation show='dash'/>
         <h2>Your Recent Analytics</h2>
         <Grid>
           <Row>
@@ -166,15 +166,15 @@ class Dashboard extends Component {
             </Col>
             <Col sm={6}>
               <Loader loaded={this.state.loaded} color="#fff">
-                <PieChart width={600} height={400}>
+                <PieChart width={600} height={260}>
                   <Pie
                     data={this.state.pieData}
                     dataKey='win'
                     cx={300}
-                    cy={200}
+                    cy={130}
                     labelLine={false}
                     label={renderCustomizedLabel}
-                    outerRadius={140}
+                    outerRadius={120}
                     fill="#8884d8">
                     {this.state.pieData.map((entry, index) => <Cell key={index} fill={COLORS[index % COLORS.length]}/>)}
                   </Pie>

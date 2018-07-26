@@ -18,10 +18,12 @@
       border-radius: 0;
       .navbar-brand {
         color: #fff !important;
-        /* font-weight: 100; */
+        cursor: pointer;
         padding-top: 10px;
-        font-weight: bold;
+        font-weight: 600;
         text-transform: uppercase;
+        text-shadow: #000 3px 4px 3px;
+        font-size: 36px;
       }
       .navigation-btns {
         & > div {

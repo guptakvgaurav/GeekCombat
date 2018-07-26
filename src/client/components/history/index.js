@@ -36,8 +36,16 @@ class History extends Component {
     axios(config)
     .then((response) => {
       console.log('response', response)
+
+      const sortedData = response.data.data.sort((a, b) =>{
+        if(new Date(a.createdAt) > new Date(b.createdAt) ){
+          return -1
+        }else{
+          return 1
+        }
+      })
       this.setState({
-        data: response.data.data,
+        data: sortedData,
         loaded: true
       })
     })
@@ -53,7 +61,7 @@ class History extends Component {
       url: `${baseUrl}v1/api/history`,
       data: {
         id: id,
-        usefull: Boolean(status),
+        usefull: status? 'yes': 'no',
         predictedOutcome:  predictedOutcome
       },
       headers: {
@@ -66,9 +74,9 @@ class History extends Component {
     axios(config)
     .then((response) => {
       console.log('response', response)
-      let _datum = this.state.data.find(_datum => _datum._id == id );
-      _datum.status = status? 'yes': 'no';
+      let _datum = this.state.data.find(_datum => _datum._id == id);
       _datum.isReviewed = true;
+      _datum.usefull = status? 'yes': 'no'
       this.forceUpdate();
     })
     .catch((err) => {
@@ -79,7 +87,7 @@ class History extends Component {
   render () {
     return (
       <div className="history-wrapper">
-        <Navigation />
+        <Navigation show='his'/>
         <h2>Past Records</h2>
         <Grid>
           <Row>
@@ -101,41 +109,43 @@ class History extends Component {
                         <Table.HeaderCell>Was this helpfull ?</Table.HeaderCell>
                       </Table.Row>
                     </Table.Header>
-                  <Table.Body>
-                    {this.state.data.map((item, index) => {
-                      let fa_like_icon = '';
-                      let fa_dislike_icon = '';
-                      if(item.isReviewed){
-                        fa_dislike_icon = 'fa-icon-disabled';
-                        fa_like_icon = 'fa-icon-disabled';
-                        if(item.status == 'yes' || item.status){
-                          fa_dislike_icon = fa_dislike_icon + ' fa-icon-hide';
-                        }
-                        if(item.status == 'no' || item.status == false){
-                          fa_like_icon = fa_like_icon + ' fa-icon-hide'
-                        }
-                      }
-                      return (
-                        <Table.Row key={index}>
-                          <Table.Cell>{item.name}</Table.Cell>
-                          <Table.Cell>{item.industry}</Table.Cell>
-                          <Table.Cell>{item.pointOfContact}</Table.Cell>
-                          <Table.Cell>{item.size}</Table.Cell>
-                          <Table.Cell>{item.region}</Table.Cell>
-                          <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
-                          <Table.Cell>{parseFloat(item.probablity * 100).toFixed(1)+' %'}</Table.Cell>
-                          {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
-                          <Table.Cell>
-                            <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)} 
-                              className={fa_like_icon}
-                            />
-                            <FontAwesome className={fa_like_icon} name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)} />
-                          </Table.Cell>
-                          {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
-                        </Table.Row>
-                      )
-                    })}
-                  </Table.Body>
+
+                    <Table.Body>
+                      {this.state.data.map((item, index) => {
+                            let fa_like_icon_class = '';
+                            let fa_dislike_icon_class = '';
+                            if(item.isReviewed){
+                              fa_like_icon_class = 'fa-icon-disabled';
+                              fa_dislike_icon_class = 'fa-icon-disabled';
+                              if(item.usefull == 'yes'){
+                                  fa_dislike_icon_class = fa_dislike_icon_class + ' fa-icon-hide';
+                              }
+                              if(item.usefull == 'no'){
+                                fa_like_icon_class = fa_like_icon_class + ' fa-icon-hide';
+                              }
+                            }
+                        return (
+                          <Table.Row key={index}>
+                            <Table.Cell>{item.name}</Table.Cell>
+                            <Table.Cell>{item.industry}</Table.Cell>
+                            <Table.Cell>{item.pointOfContact}</Table.Cell>
+                            <Table.Cell>{item.size}</Table.Cell>
+                            <Table.Cell>{item.region}</Table.Cell>
+                            <Table.Cell>{moment(item.createdAt).format('MM/DD/YYYY')}</Table.Cell>
+                            <Table.Cell>{parseFloat(item.probablity * 100).toFixed(1)+' %'}</Table.Cell>
+                            {/*<Table.Cell>{String(item.usefull)}</Table.Cell>*/}
+                            <Table.Cell>
+                              <FontAwesome name='thumbs-up' onClick={this.setStatus.bind(null, item._id, 1, item.predictedOutcome)}
+                                className={ fa_like_icon_class }/>
+                              <FontAwesome name='thumbs-down' onClick={this.setStatus.bind(null, item._id, 0, item.predictedOutcome)}
+                                className={ fa_dislike_icon_class }/>
+                            </Table.Cell>
+                            {/*<Table.Cell>{String(item.successfull)}</Table.Cell> */}
+                          </Table.Row>
+                        )
+                      })}
+                    </Table.Body>
+
                     <Table.Footer>
                       {/* <Table.Row>
                        <Table.HeaderCell colSpan='12'>

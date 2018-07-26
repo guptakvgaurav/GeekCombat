@@ -8,6 +8,8 @@
     h2 {
       color: #fff;
       text-align: center;
+      font-weight: 300;
+      text-transform: uppercase;
     }
     .history-table {
       .table {
@@ -68,9 +70,9 @@
 
 .fa-icon-disabled {
   pointer-events: none;
-  opacity: 0.1;
+  opacity: 0.2 !important
 }
 
 .fa-icon-hide {
-  opacity: 0item;
+  opacity: 0 !important;
 }
